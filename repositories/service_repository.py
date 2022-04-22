@@ -1,5 +1,7 @@
 from db.run_sql import run_sql
 from models.service import Service
+from models.photographer import Photographer
+import repositories.photographer_repository as photographer_repository
 
 
 def save(service):
@@ -9,6 +11,14 @@ def save(service):
     id = results[0]['id']
     service.id = id
 
+
+def select(id):
+    sql = "SELECT * FROM services WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    photographer = photographer_repository.select(result["photographer_id"])
+    service = Service(result["photo_type"], result["place"], result["hours"], result["price"], photographer, result["id"])
+    return service
 
 def delete_all():
     sql = "DELETE FROM services"

@@ -13,6 +13,14 @@ def save(photographer):
     return photographer
 
 
+def select(id):
+    sql = "SELECT * FROM photographers WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    photographer = Photographer(result["name"], result["email"],
+                    result["portfolio_address"], result["id"])
+    return photographer
+
 def delete_all():
     sql = "DELETE FROM photographers"
     run_sql(sql)

@@ -37,3 +37,10 @@ service_repository.save(service_2)
 
 booking_1 = Booking("Properties in Currie",1,"Currie",client_1.id,service_2.id,photographer_1.id )
 booking_repository.save(booking_1)
+
+
+
+print(client_repository.select(1))
+print(booking_repository.select(1))
+print(photographer_repository.select(1))
+print(service_repository.select(1))

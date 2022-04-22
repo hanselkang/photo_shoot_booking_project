@@ -9,6 +9,13 @@ def save(client):
     id = results[0]['id']
     client.id = id
 
+def select(id):
+    sql = "SELECT * FROM clients WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    client = Client(result["name"], result["client_from"],
+                    result["email"], result["age"], result["contact"], result["id"])
+    return client
 
 def delete_all():
     sql = "DELETE FROM clients"
