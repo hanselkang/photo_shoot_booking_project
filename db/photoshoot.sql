@@ -1,25 +1,7 @@
-DROP TABLE IF EXISTS transactions;
-DROP TABLE IF EXISTS merchants;
-DROP TABLE IF EXISTS tags;
-
-CREATE TABLE photographer (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    email VARCHAR(255),
-    portfolio_address VARCHAR(255),
-    client_id INT NULL REFERENCES clients(id),
-    service_id INT NULL REFERENCES servies(id)
-);
-
-CREATE TABLE client (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    age VARCHAR(255),
-    client_from VARCHAR(255),
-    email VARCHAR(255),
-    contact VARCHAR(255),
-    booking_id INT NULL REFERENCES bookings(id)
-);
+DROP TABLE IF EXISTS photographers;
+DROP TABLE IF EXISTS clients;
+DROP TABLE IF EXISTS bookings;
+DROP TABLE IF EXISTS services;
 
 CREATE TABLE services (
     id SERIAL PRIMARY KEY,
@@ -36,3 +18,29 @@ CREATE TABLE bookings (
     num_of_group INT,
     service_id INT NULL REFERENCES services(id)
 );
+
+CREATE TABLE clients (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    age VARCHAR(255),
+    client_from VARCHAR(255),
+    email VARCHAR(255),
+    contact VARCHAR(255),
+    booking_id INT NULL REFERENCES bookings(id)
+);
+
+CREATE TABLE photographers (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    portfolio_address VARCHAR(255),
+    client_id INT NULL REFERENCES clients(id),
+    service_id INT NULL REFERENCES services(id)
+);
+
+
+
+
+
+
+
