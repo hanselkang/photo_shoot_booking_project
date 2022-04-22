@@ -45,7 +45,10 @@ print(booking_repository.select(1))
 print(photographer_repository.select(1))
 print(service_repository.select(1))
 
-print(client_repository.select_all())
+for x in client_repository:
+    print( x, __dict__)
+
 print(booking_repository.select_all())
 print(photographer_repository.select_all())
 print(service_repository.select_all())
+

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Clients</h2>
+
+{% for client in clients %}
+
+<section>
+    <p>{{ client.name }}</p>
+    <p>{{ client.client_from }}</p>
+    <p>{{ client.email }}</p>
+    <p>{{ client.age }}</p>
+    <p>{{ client.contact }}</p>
+    <p>{{ client.id }}</p>
+    <a href="/clients/{{ client.id }}/edit"></a>
+    <form action="/client/{{ client.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+</section>
+
+{% endfor %}
+{% endblock %}
