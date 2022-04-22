@@ -25,6 +25,21 @@ def select(id):
     return booking
 
 
+def select_all():
+    bookings = []
+    sql = "SELECT * FROM bookings"
+    results = run_sql(sql)
+    for result in results:
+        client = client_repository.select(result["client_id"])
+        service = service_repository.select(result["service_id"])
+        photographer = photographer_repository.select(result["photographer_id"])
+        booking = Booking(result["name"], result["address"],
+                          result["num_of_group"], client, service, photographer, result["id"])
+        bookings.append(booking)
+    return bookings
+
+
+
 def delete_all():
     sql = "DELETE FROM bookings"
     run_sql(sql)

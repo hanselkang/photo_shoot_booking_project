@@ -21,6 +21,16 @@ def select(id):
                     result["portfolio_address"], result["id"])
     return photographer
 
+def select_all():
+    photographers = []
+    sql = "SELECT * FROM photographers"
+    results = run_sql(sql)
+    for result in results:
+        photographer = Photographer(result["name"], result["email"],
+                                    result["portfolio_address"], result["id"])
+        photographers.append(photographer)
+    return photographers
+
 def delete_all():
     sql = "DELETE FROM photographers"
     run_sql(sql)

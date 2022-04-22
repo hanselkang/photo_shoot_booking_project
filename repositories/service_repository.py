@@ -20,6 +20,18 @@ def select(id):
     service = Service(result["photo_type"], result["place"], result["hours"], result["price"], photographer, result["id"])
     return service
 
+
+def select_all():
+    services = []
+    sql = "SELECT * FROM services"
+    results = run_sql(sql)
+    for result in results:
+        photographer = photographer_repository.select(result["photographer_id"])
+        service = Service(result["photo_type"], result["place"],
+                          result["hours"], result["price"], photographer, result["id"])
+        services.append(service)
+    return services
+
 def delete_all():
     sql = "DELETE FROM services"
     run_sql(sql)

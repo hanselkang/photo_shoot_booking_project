@@ -44,3 +44,8 @@ print(client_repository.select(1))
 print(booking_repository.select(1))
 print(photographer_repository.select(1))
 print(service_repository.select(1))
+
+print(client_repository.select_all())
+print(booking_repository.select_all())
+print(photographer_repository.select_all())
+print(service_repository.select_all())

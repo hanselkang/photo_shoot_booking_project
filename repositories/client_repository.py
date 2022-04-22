@@ -17,6 +17,18 @@ def select(id):
                     result["email"], result["age"], result["contact"], result["id"])
     return client
 
+
+def select_all():
+    clients = []
+    sql = "SELECT * FROM clients"
+    results = run_sql(sql)
+    for result in results:
+        client = Client(result["name"], result["client_from"],
+                        result["email"], result["age"], result["contact"], result["id"])
+        clients.append(client)
+    return clients
+
+
 def delete_all():
     sql = "DELETE FROM clients"
     run_sql(sql)
