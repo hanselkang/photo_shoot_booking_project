@@ -1,7 +1,9 @@
 class Booking:
-    def __init__(self, name, num_of_group, address, photo_type, id=None):
+    def __init__(self, name, num_of_group, address, client_id, service_id, photographer_id, id=None):
         self.name = name
-        self.num_of_group = num_of_group
         self.address = address
-        self.photo_type = photo_type
+        self.num_of_group = num_of_group
+        self.client_id = client_id
+        self.service_id = service_id
+        self.photographer_id = photographer_id
         self.id = id
