@@ -1,3 +1,62 @@
 {% extends "base.html" %}
 {% block content %}
+
+<h2>Add a New Photo Shoot Booking</h2>
+
+<form action="/bookings" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+    </div>
+    <div>
+        <label for="address">Photo Shoot Place:</label>
+        <input type="text" id="address" name="address">
+    </div>
+    <div>
+        <label for="num_of_group">Number of People:</label>
+        <input type="text" id="num_of_group" name="num_of_group">
+    </div>
+    <div>
+        <label for="photoshoot_start_time">From :</label>
+        <input type="datetime" value="2022-08-01 12:00:00" id="photoshoot_start_time" name="photoshoot_start_time" >
+    </div>
+    <div>
+        <label for="photoshoot_end_time">Till :</label>
+        <input type="datetime" value="2022-08-01 12:00:00" id="photoshoot_end_time" name="photoshoot_end_time">
+    </div>
+    <div>
+        <label for="client">Client:</label>
+        <select name="client_id" id="client">
+            {% for client in clients %}
+            <option value="{{ client.id }}">
+                {{ client.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="service">Service:</label>
+        <select name="service_id" id="service">
+            {% for service in services %}
+            <option value="{{ service.id }}">
+                {{ service.photo_type, service.hours, service.photographer.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="photographer">Photographer:</label>
+        <select name="photographer_id" id="photographer">
+            {% for photographer in photographers %}
+            <option value="{{ photographer.id }}">
+                {{ photographer.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
 {% endblock %}
