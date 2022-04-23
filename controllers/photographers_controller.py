@@ -1,5 +1,4 @@
 from flask import Blueprint, Flask, redirect, render_template, request
-
 from models.photographer import Photographer
 import repositories.photographer_repository as photographer_repository
 
@@ -18,9 +17,7 @@ def new_photographer():
     photographers = photographer_repository.select_all()
     return render_template("photographers/new.html", photographers=photographers)
 
-# creat
-
-
+# create
 @photographers_blueprint.route("/photographers", methods=["POST"])
 def create_photographer():
     name = request.form["name"]

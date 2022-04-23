@@ -1,11 +1,8 @@
 from db.run_sql import run_sql
 from models.booking import Booking
-from models.client import Client
-from models.service import Service
 import repositories.client_repository as client_repository
 import repositories.service_repository as service_repository
 import repositories.photographer_repository as photographer_repository
-
 
 
 def save(booking):
@@ -15,9 +12,6 @@ def save(booking):
     results = run_sql(sql, values)
     id = results[0]['id']
     booking.id = id
-
-
-
 
 
 def select(id):
@@ -30,8 +24,6 @@ def select(id):
     booking = Booking(result["name"], result["address"],
                       result["num_of_group"], result["photoshoot_start_time"], result["photoshoot_end_time"], client, service, photographer, result["id"])
     return booking
-
-
 
 
 def select_all():

@@ -26,8 +26,8 @@
             name="photoshoot_end_time">
     </div>
     <div>
-        <label for="client">Client:</label>
-        <select name="client_id" id="client">
+        <label for="client_id">Client:</label>
+        <select name="client_id" id="client_id">
             {% for client in clients %}
             <option value="{{ client.id }}" {% if client.id==booking.client.id %} selected {% endif %}>
 

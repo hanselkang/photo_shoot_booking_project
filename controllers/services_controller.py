@@ -19,8 +19,8 @@ def new_service():
     photographers = photographer_repository.select_all()
     return render_template("services/new.html")
 
-# creat
-@services_blueprint.route("/services/<id>", methods=["POST"])
+# create
+@services_blueprint.route("/services", methods=["POST"])
 def create_service():
     photo_type = request.form["photo_type"]
     hours = request.form["hours"]
@@ -36,14 +36,14 @@ def edit_service(id):
     return render_template('services/edit.html', service=service)
 
 # update
-@services_blueprint.route("/services/<id>", methods=['POST'])
+@services_blueprint.route("/services/<id>", methods=["GET","POST"])
 def update_service(id):
     photo_type = request.form["photo_type"]
     hours = request.form["hours"]
     price = request.form["price"]
     edit_service = Service(photo_type, hours, price, id)
     service_repository.update(edit_service)
-
+    return redirect("/services")
 
 # @services_blueprint.route("/photographer/<id>")
 # def list_clients(id):

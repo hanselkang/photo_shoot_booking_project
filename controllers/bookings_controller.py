@@ -1,4 +1,3 @@
-from controllers.photographers_controller import photographers
 from flask import Blueprint, Flask, redirect, render_template, request
 from models.booking import Booking
 
@@ -26,9 +25,7 @@ def new_booking():
     photographers = photographer_repository.select_all()
     return render_template("bookings/new.html", clients=clients, services=services, photographers=photographers)
 
-# creat
-
-
+# create
 @bookings_blueprint.route("/bookings", methods=["POST"])
 def create_booking():
     name = request.form["name"]
@@ -59,7 +56,6 @@ def edit_booking(id):
     photographers = photographer_repository.select_all()
     return render_template('bookings/edit.html', booking=booking, clients=clients, services = services, photographers= photographers)
 
-
 # UPDATE
 @bookings_blueprint.route("/bookings/<id>", methods=["GET", "POST"])
 def update_booking(id):
@@ -72,14 +68,14 @@ def update_booking(id):
     client_id = request.form["client_id"]
     service_id = request.form["service_id"]
     photographer_id = request.form["photographer_id"]
+
     client = client_repository.select(client_id)
     service = service_repository.select(service_id)
     photographer = service_repository.select(photographer_id)
 
-
-    booking = Booking(name, address, num_of_group, photoshoot_start_time,
-                          photoshoot_end_time, client, service, photographer, id)
-    booking_repository.update(booking)
+    edit_booking = Booking(name, address, num_of_group, photoshoot_start_time,
+                          photoshoot_end_time, client.id, service.id, photographer.id, id)
+    booking_repository.update(edit_booking)
     return redirect("/bookings")
 
 

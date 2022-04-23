@@ -1,6 +1,5 @@
 from flask import Blueprint, Flask, redirect, render_template, request
 from models.client import Client
-
 import repositories.client_repository as client_repository
 
 clients_blueprint = Blueprint("clients",__name__)
@@ -18,7 +17,7 @@ def new_client():
     clients = client_repository.select_all()
     return render_template("clients/new.html", clients=clients)
 
-# creat
+# create
 @clients_blueprint.route("/clients", methods=["POST"])
 def create_client():
     name = request.form["name"]

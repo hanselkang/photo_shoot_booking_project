@@ -44,7 +44,7 @@ def delete_all():
 
 
 def update(photographer):
-    sql = "UPDATE photographers SET (name, email, portfolio_address) VALUES (%s, %s, %s) WHERE id = %s"
+    sql = "UPDATE photographers SET (name, email, portfolio_address) = (%s, %s, %s) WHERE id = %s"
     values = [photographer.name,
               photographer.email, photographer.portfolio_address, photographer.id]
     run_sql(sql, values)
