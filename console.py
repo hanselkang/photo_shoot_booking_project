@@ -2,21 +2,20 @@ import pdb
 
 
 from models.client import Client
-from models.service import Service
 from models.photographer import Photographer
+from models.service import Service
 from models.booking import Booking
 
 
 import repositories.client_repository as client_repository
-import repositories.service_repository as service_repository
 import repositories.photographer_repository as photographer_repository
+import repositories.service_repository as service_repository
 import repositories.booking_repository as booking_repository
 
 booking_repository.delete_all()
-photographer_repository.delete_all()
 service_repository.delete_all()
+photographer_repository.delete_all()
 client_repository.delete_all()
-
 
 
 client_1 = Client("George", "New Zealand", "George.g@gmail.g", 35, "092991")
@@ -28,19 +27,21 @@ client_repository.save(client_2)
 client_3 = Client("Alice", "Birmingham", "Alice.a@amail.a", 28, "073299")
 client_repository.save(client_3)
 
-client_4 = Client("Clair", "South Korea", "Clare.c@cmail.c", 30, "072129")
+client_4 = Client("Claire", "South Korea", "Clare.c@cmail.c", 30, "072129")
 client_repository.save(client_4)
 
-photographer_1 = Photographer("Hansel", "webmaster@hanseul.com", "http://instagram.com/hansel_in_scotland")
+photographer_1 = Photographer(
+    "Hansel", "webmaster@hanseul.com", "http://instagram.com/hansel_in_scotland")
 photographer_repository.save(photographer_1)
 
-service_1 = Service("Portrait", 2, "Royal Mile", 160, photographer_1.id)
+
+service_1 = Service("Portrait", 'Royal Mile', 2, 160, photographer_1.id)
 service_repository.save(service_1)
 
-service_2 = Service("Interior", 1, "Currie", 100, photographer_1.id)
+service_2 = Service("Interior", "Currie", 1, 100, photographer_1.id)
 service_repository.save(service_2)
 
-service_3 = Service("Portrait", 2, "Edinburgh", 160, photographer_1.id)
+service_3 = Service("Portrait", "Edinburgh", 2, 160, photographer_1.id)
 service_repository.save(service_3)
 
 
@@ -64,7 +65,6 @@ booking_repository.save(booking_4)
 # print(photographer_repository.select_client_of_photographer(1))
 
 
-
 # client_repository.delete(2)
 # print(client_repository.select(1))
 # print(booking_repository.select(1))
@@ -73,4 +73,3 @@ booking_repository.save(booking_4)
 # print(booking_repository.select_all())
 # print(photographer_repository.select_all())
 # print(service_repository.select_all())
-

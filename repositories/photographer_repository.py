@@ -1,7 +1,6 @@
 from db.run_sql import run_sql
 from models.client import Client
 from models.photographer import Photographer
-import repositories.service_repository as service_repository
 
 
 def save(photographer):

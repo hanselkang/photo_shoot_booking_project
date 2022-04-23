@@ -5,14 +5,14 @@
 {% for client in clients %}
 
 <section>
-    <p>{{ client.name }}</p>
-    <p>{{ client.client_from }}</p>
-    <p>{{ client.email }}</p>
-    <p>{{ client.age }}</p>
-    <p>{{ client.contact }}</p>
-    <p>{{ client.id }}</p>
+    <p>Client name : {{ client.name }}</p>
+    <p>Client from : {{ client.client_from }}</p>
+    <p>email : {{ client.email }}</p>
+    <p>Age : {{ client.age }}</p>
+    <p>Contact : {{ client.contact }}</p>
+    <p>ID : {{ client.id }}</p>
     <a href="/clients/{{ client.id }}/edit"></a>
-    <form action="/client/{{ client.id }}/delete" method="POST">
+    <form action="/clients/{{ client.id }}/delete" method="POST">
         <input type="submit" value="Delete">
     </form>
 </section>
