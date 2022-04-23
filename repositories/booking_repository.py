@@ -39,7 +39,19 @@ def select_all():
     return bookings
 
 
+def delete(id):
+    sql = "DELETE FROM bookings WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
 
 def delete_all():
     sql = "DELETE FROM bookings"
     run_sql(sql)
+
+
+def update(booking):
+    sql = "UPDATE bookings (name, address, num_of_group, photoshoot_start_time, photoshoot_end_time, client_id, service_id, photographer_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+    values = [booking.name,
+              booking.address, booking.num_of_group, booking.photoshoot_start_time, booking.photoshoot_end_time, booking.client_id, booking.service_id, booking.photographer_id]
+    run_sql(sql, values)

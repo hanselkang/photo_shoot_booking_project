@@ -5,7 +5,7 @@ import repositories.photographer_repository as photographer_repository
 
 
 def save(service):
-    sql = "INSERT INTO services (photo_type, place, hours, price, photographer_id) VALUES (%s, %s, %s, %s, %s) RETURNING id"
+    sql = "INSERT INTO services(photo_type, place, hours, price, photographer_id) VALUES (%s, %s, %s, %s, %s) RETURNING id"
     values = [service.photo_type, service.place, service.hours, service.price, service.photographer_id]
     results = run_sql(sql, values)
     id = results[0]['id']
@@ -32,6 +32,18 @@ def select_all():
         services.append(service)
     return services
 
+def delete(id):
+    sql = "DELETE FROM services WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
 def delete_all():
     sql = "DELETE FROM services"
     run_sql(sql)
+
+
+def update(service):
+    sql = "UPDATE services(photo_type, place, hours, price, photographer_id) VALUES (%s, %s, %s, %s, %s)"
+    values = [service.photo_type, service.place,
+              service.hours, service.price, service.photographer_id]
+    run_sql(sql, values)
