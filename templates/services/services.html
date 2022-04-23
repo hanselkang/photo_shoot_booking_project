@@ -7,9 +7,8 @@
     <p>{{ service.photo_type }} Photo Shoot</p>
     <p>{{ service.hours }} Hours</p>
     <p>£ {{ service.price }}</p>
-    <p>Photographer : {{ service.photographer.name }}</p>
     <p>{{ service.id }}</p>
-    <a href="/services/{{ service.id }}/edit"></a>
+    <a href="/services/{{ service.id }}/edit">edit</a>
     <form action="/services/{{ service.id }}/delete" method="POST">
         <input type="submit" value="Delete">
     </form>

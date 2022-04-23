@@ -4,9 +4,9 @@ import repositories.photographer_repository as photographer_repository
 
 
 def save(service):
-    sql = "INSERT INTO services(photo_type, hours, price, photographer_id) VALUES (%s, %s, %s, %s) RETURNING id"
+    sql = "INSERT INTO services(photo_type, hours, price) VALUES (%s, %s, %s) RETURNING id"
     values = [service.photo_type,
-              service.hours, service.price, service.photographer]
+              service.hours, service.price]
     results = run_sql(sql, values)
     id = results[0]['id']
     service.id = id
@@ -16,9 +16,8 @@ def select(id):
     sql = "SELECT * FROM services WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
-    photographer = photographer_repository.select(result["photographer_id"])
     service = Service(result["photo_type"], result["hours"],
-                      result["price"], photographer, result["id"])
+                      result["price"], result["id"])
     return service
 
 
@@ -28,10 +27,8 @@ def select_all():
     sql = "SELECT * FROM services"
     results = run_sql(sql)
     for result in results:
-        photographer = photographer_repository.select(
-            result["photographer_id"])
         service = Service(result["photo_type"],
-                          result["hours"], result["price"], photographer, result["id"])
+                          result["hours"], result["price"], result["id"])
         services.append(service)
     return services
 
@@ -48,7 +45,7 @@ def delete_all():
 
 
 def update(service):
-    sql = "UPDATE services(photo_type, hours, price, photographer) VALUES (%s, %s, %s, %s, %s)"
+    sql = "UPDATE services SET (photo_type, hours, price) = (%s, %s, %s) WHERE id = %s"
     values = [service.photo_type,
-              service.hours, service.price, service.photographer.id, service.id]
+              service.hours, service.price, service.id]
     run_sql(sql, values)

@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 from models.photographer import Photographer
+from models.client import Client
 
 
 def save(photographer):
@@ -10,12 +11,13 @@ def save(photographer):
     id = results[0]['id']
     photographer.id = id
 
+
 def select(id):
     sql = "SELECT * FROM photographers WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
-    photographer = Photographer(result["name"], result["email"],
-                                result["portfolio_address"], result["id"])
+    photographer = Photographer(
+        result["name"], result["email"], result["portfolio_address"], result["id"])
     return photographer
 
 
@@ -24,8 +26,8 @@ def select_all():
     sql = "SELECT * FROM photographers"
     results = run_sql(sql)
     for result in results:
-        photographer = Photographer(result["name"], result["email"],
-                                    result["portfolio_address"], result["id"])
+        photographer = Photographer(
+            result["name"], result["email"], result["portfolio_address"], result["id"])
         photographers.append(photographer)
     return photographers
 
@@ -42,7 +44,7 @@ def delete_all():
 
 
 def update(photographer):
-    sql = "UPDATE photographers (name, email, portfolio_address) VALUES (%s, %s, %s)"
+    sql = "UPDATE photographers SET (name, email, portfolio_address) VALUES (%s, %s, %s) WHERE id = %s"
     values = [photographer.name,
-              photographer.email, photographer.portfolio_address]
+              photographer.email, photographer.portfolio_address, photographer.id]
     run_sql(sql, values)

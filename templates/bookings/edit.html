@@ -1,3 +1,63 @@
 {% extends "base.html" %}
 {% block content %}
+<h2>Update a booking</h2>
+
+<form action="/bookings/{{ booking.id }}" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ booking.name }}">
+    </div>
+    <div>
+        <label for="address">Photo Shoot Place:</label>
+        <input type="text" id="address" name="address" value="{{ booking.address }}">
+    </div>
+    <div>
+        <label for="num_of_group">Number of People:</label>
+        <input type="text" id="num_of_group" name="num_of_group" value="{{ booking.num_of_group }}">
+    </div>
+    <div>
+        <label for="photoshoot_start_time">From :</label>
+        <input type="datetime" value="{{ booking.photoshoot_start_time }}" id="photoshoot_start_time"
+            name="photoshoot_start_time">
+    </div>
+    <div>
+        <label for="photoshoot_end_time">From :</label>
+        <input type="datetime" value="{{ booking.photoshoot_end_time }}" id="photoshoot_end_time"
+            name="photoshoot_end_time">
+    </div>
+    <div>
+        <label for="client">Client:</label>
+        <select name="client_id" id="client">
+            {% for client in clients %}
+            <option value="{{ client.id }}" {% if client.id==booking.client.id %} selected {% endif %}>
+
+                {{ client.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="service_id">Photo Type:</label>
+        <select name="service_id" id="service_id">
+            {% for service in services %}
+            <option value="{{ service.id }}" {% if service.id==booking.service.id %} selected {% endif %}>
+                {{ service.photo_type }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="photographer">Photographer:</label>
+        <select name="photographer_id" id="photographer">
+            {% for photographer in photographers %}
+            <option value="{{ photographer.id }}" {% if photographer.id==booking.photographer.id %} selected{% endif %}>
+                {{ photographer.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
 {% endblock %}

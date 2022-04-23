@@ -17,16 +17,6 @@
         <input type="datetime" id="price" name="price">
     </div>
     <div>
-        <label for="photographer">Photographer : </label>
-        <select name="photographer_id" id="photographer">
-            {% for photographer in photographers %}
-            <option value="{{ photographer.id }}">
-                {{ photographer.name }}
-            </option>
-            {% endfor %}
-        </select>
-    </div>
-    <div>
         <input type="submit">
     </div>
 </form>

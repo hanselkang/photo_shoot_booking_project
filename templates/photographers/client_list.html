@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ photographer.name }}</h2>
+
+<h3>Bookings</h3>
+<ul>
+    {% for client in clients %}
+    <li>{{ client.name }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

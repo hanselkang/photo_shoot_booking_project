@@ -1,3 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
+
+<h2>Edit Service</h2>
+
+<form action="/services/{{ service.id }}" method="POST">
+    <div>
+        <label for="photo_type">Type : </label>
+        <input type="text" id="photo_type" name="photo_type" value="{{ service.photo_type }}">
+    </div>
+    <div>
+        <label for="hours">Hours : </label>
+        <input type="text" id="hours" name="hours" value="{{ service.hours }}">
+    </div>
+    <div>
+        <label for="price">Price : </label>
+        <input type="datetime" id="price" name="price" value="{{ service.price }}">
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
 {% endblock %}

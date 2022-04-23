@@ -4,12 +4,14 @@ from models.client import Client
 from models.service import Service
 import repositories.client_repository as client_repository
 import repositories.service_repository as service_repository
+import repositories.photographer_repository as photographer_repository
+
 
 
 def save(booking):
-    sql = "INSERT INTO bookings (name, address, num_of_group, photoshoot_start_time, photoshoot_end_time, client_id, service_id) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING id"
+    sql = "INSERT INTO bookings (name, address, num_of_group, photoshoot_start_time, photoshoot_end_time, client_id, service_id, photographer_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING id"
     values = [booking.name,
-              booking.address, booking.num_of_group, booking.photoshoot_start_time, booking.photoshoot_end_time, booking.client.id, booking.service.id]
+              booking.address, booking.num_of_group, booking.photoshoot_start_time, booking.photoshoot_end_time, booking.client.id, booking.service.id, booking.photographer.id]
     results = run_sql(sql, values)
     id = results[0]['id']
     booking.id = id
@@ -24,8 +26,9 @@ def select(id):
     result = run_sql(sql, values)[0]
     client = client_repository.select(result["client_id"])
     service = service_repository.select(result["service_id"])
+    photographer = photographer_repository.select(result["photographer_id"])
     booking = Booking(result["name"], result["address"],
-                      result["num_of_group"], result["photoshoot_start_time"], result["photoshoot_end_time"], client, service, result["id"])
+                      result["num_of_group"], result["photoshoot_start_time"], result["photoshoot_end_time"], client, service, photographer, result["id"])
     return booking
 
 
@@ -38,8 +41,10 @@ def select_all():
     for result in results:
         client = client_repository.select(result["client_id"])
         service = service_repository.select(result["service_id"])
+        photographer = photographer_repository.select(
+            result["photographer_id"])
         booking = Booking(result["name"], result["address"], result["num_of_group"], result["photoshoot_start_time"],
-                          result["photoshoot_end_time"], client, service, result["id"])
+                          result["photoshoot_end_time"], client, service, photographer, result["id"])
         bookings.append(booking)
     return bookings
 
@@ -56,7 +61,7 @@ def delete_all():
 
 
 def update(booking):
-    sql = "UPDATE bookings (name, address, num_of_group, photoshoot_start_time, photoshoot_end_time, client_id, service_id) VALUES (%s, %s, %s, %s, %s, %s)"
+    sql = "UPDATE bookings SET (name, address, num_of_group, photoshoot_start_time, photoshoot_end_time, client_id, service_id, photographer_id) = (%s, %s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
     values = [booking.name,
-              booking.address, booking.num_of_group, booking.photoshoot_start_time, booking.photoshoot_end_time, booking.client.id, booking.service.id]
+              booking.address, booking.num_of_group, booking.photoshoot_start_time, booking.photoshoot_end_time, booking.client, booking.service, booking.photographer, booking.id]
     run_sql(sql, values)

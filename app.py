@@ -7,10 +7,10 @@ from controllers.photographers_controller import photographers_blueprint
 
 app = Flask(__name__)
 
+app.register_blueprint(photographers_blueprint)
 app.register_blueprint(bookings_blueprint)
 app.register_blueprint(services_blueprint)
 app.register_blueprint(clients_blueprint)
-app.register_blueprint(photographers_blueprint)
 
 
 @app.route("/")

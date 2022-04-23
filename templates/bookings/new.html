@@ -18,7 +18,7 @@
     </div>
     <div>
         <label for="photoshoot_start_time">From :</label>
-        <input type="datetime" value="2022-08-01 12:00:00" id="photoshoot_start_time" name="photoshoot_start_time" >
+        <input type="datetime" value="2022-08-01 12:00:00" id="photoshoot_start_time" name="photoshoot_start_time">
     </div>
     <div>
         <label for="photoshoot_end_time">Till :</label>
@@ -39,7 +39,17 @@
         <select name="service_id" id="service_id">
             {% for service in services %}
             <option value="{{ service.id }}">
-                {{ service.photo_type, service.id, service.photographer.name }}
+                {{ service.photo_type }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="photographer_id">Photographer:</label>
+        <select name="photographer_id" id="photographer_id">
+            {% for photographer in photographers %}
+            <option value="{{ photographer.id }}">
+                {{ photographer.name }}
             </option>
             {% endfor %}
         </select>

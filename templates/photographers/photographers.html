@@ -8,7 +8,7 @@
     <p>Portfolio :
         <a href="{{ photographer.portfolio_address }}">Click here</a>
     </p>
-    <a href="/photographers/{{ photographer.id }}/edit"></a>
+    <a href="/photographers/{{ photographer.id }}/edit">edit</a>
     <form action="/photographers/{{ photographer.id }}/delete" method="POST">
         <input type="submit" value="Delete">
     </form>

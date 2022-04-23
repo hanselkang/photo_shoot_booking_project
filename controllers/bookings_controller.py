@@ -1,6 +1,6 @@
+from controllers.photographers_controller import photographers
 from flask import Blueprint, Flask, redirect, render_template, request
 from models.booking import Booking
-from models.client import Client
 
 import repositories.client_repository as client_repository
 import repositories.booking_repository as booking_repository
@@ -11,21 +11,20 @@ bookings_blueprint = Blueprint("bookings", __name__)
 
 # index
 
-
 @bookings_blueprint.route("/bookings")
 def bookings():
     clients = client_repository.select_all()
     bookings = booking_repository.select_all()
-    return render_template("bookings/bookings.html", bookings=bookings, clients=clients)
+    photographers = photographer_repository.select_all()
+    return render_template("bookings/bookings.html", bookings=bookings, clients=clients, photographers=photographers)
 
 # new
-
-
 @bookings_blueprint.route("/bookings/new")
 def new_booking():
     clients = client_repository.select_all()
     services = service_repository.select_all()
-    return render_template("bookings/new.html", clients=clients, services=services)
+    photographers = photographer_repository.select_all()
+    return render_template("bookings/new.html", clients=clients, services=services, photographers=photographers)
 
 # creat
 
@@ -40,11 +39,59 @@ def create_booking():
 
     client_id = request.form["client_id"]
     service_id = request.form["service_id"]
+    photographer_id = request.form["photographer_id"]
 
     client = client_repository.select(client_id)
     service = service_repository.select(service_id)
+    photographer = service_repository.select(photographer_id)
 
     new_booking = Booking(name, address, num_of_group, photoshoot_start_time,
-                          photoshoot_end_time, client, service)
+                          photoshoot_end_time, client, service, photographer)
     booking_repository.save(new_booking)
     return redirect("/bookings")
+
+# edit
+@bookings_blueprint.route("/bookings/<id>/edit")
+def edit_booking(id):
+    booking = booking_repository.select(id)
+    clients = client_repository.select_all()
+    services = service_repository.select_all()
+    photographers = photographer_repository.select_all()
+    return render_template('bookings/edit.html', booking=booking, clients=clients, services = services, photographers= photographers)
+
+
+# UPDATE
+@bookings_blueprint.route("/bookings/<id>", methods=["GET", "POST"])
+def update_booking(id):
+    name = request.form["name"]
+    address = request.form["address"]
+    num_of_group = request.form["num_of_group"]
+    photoshoot_start_time = request.form["photoshoot_start_time"]
+    photoshoot_end_time = request.form["photoshoot_end_time"]
+
+    client_id = request.form["client_id"]
+    service_id = request.form["service_id"]
+    photographer_id = request.form["photographer_id"]
+    client = client_repository.select(client_id)
+    service = service_repository.select(service_id)
+    photographer = service_repository.select(photographer_id)
+
+
+    booking = Booking(name, address, num_of_group, photoshoot_start_time,
+                          photoshoot_end_time, client, service, photographer, id)
+    booking_repository.update(booking)
+    return redirect("/bookings")
+
+
+# delete 
+@bookings_blueprint.route("/bookings/<id>/delete", methods=['POST'])
+def delete_booking(id):
+    booking_repository.delete(id)
+    return redirect('/bookings')
+
+
+# delete all
+# @bookings_blueprint.route("/bookings/delete", methods=['POST'])
+# def delete_all_booking():
+#     booking_repository.delete_all()
+#     return redirect('/bookings')

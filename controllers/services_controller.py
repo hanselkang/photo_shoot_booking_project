@@ -17,21 +17,43 @@ def services():
 @services_blueprint.route("/services/new")
 def new_service():
     photographers = photographer_repository.select_all()
-    return render_template("services/new.html", photographers=photographers)
+    return render_template("services/new.html")
 
 # creat
-
-
-@services_blueprint.route("/services", methods=["POST"])
+@services_blueprint.route("/services/<id>", methods=["POST"])
 def create_service():
     photo_type = request.form["photo_type"]
     hours = request.form["hours"]
     price = request.form["price"]
-    
-    photographer_id = request.form["photographer_id"]
-
-    photographer = photographer_repository.select(photographer_id)
-
-    new_service = Service(photo_type, hours, price, photographer.id)
+    new_service = Service(photo_type, hours, price)
     service_repository.save(new_service)
     return redirect("/services")
+
+# edit
+@services_blueprint.route("/services/<id>/edit")
+def edit_service(id):
+    service = service_repository.select(id)
+    return render_template('services/edit.html', service=service)
+
+# update
+@services_blueprint.route("/services/<id>", methods=['POST'])
+def update_service(id):
+    photo_type = request.form["photo_type"]
+    hours = request.form["hours"]
+    price = request.form["price"]
+    edit_service = Service(photo_type, hours, price, id)
+    service_repository.update(edit_service)
+
+
+# @services_blueprint.route("/photographer/<id>")
+# def list_clients(id):
+#     clients = photographer_repository.select_clients_by_photographer(id)
+#     service = service_repository.select(id)
+
+#     return render_template("photographers/client_list.html", clients=clients, service=service)
+
+# delete
+@services_blueprint.route("/services/<id>/delete", methods=['POST'])
+def delete_service(id):
+    service_repository.delete(id)
+    return redirect('/services')

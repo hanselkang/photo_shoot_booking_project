@@ -1,3 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
+
+<h2>Edit a Photographer information</h2>
+
+<form action="/photographers/{{ photographer.id }}" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"  value="{{ photographer.name }}">
+    </div>
+    <div>
+        <label for="email">email:</label>
+        <input type="text" id="email" name="email" value="{{ photographer.email }}">
+    </div>
+    <div>
+        <label for="portfolio_address">Portfolio :</label>
+        <input type="portfolio_address" id="portfolio_address" name="portfolio_address" value="{{ photographer.portfolio_address }}">
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
 {% endblock %}
