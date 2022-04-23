@@ -35,7 +35,8 @@ service_2 = Service("Interior", 1, "Currie", 100, photographer_1.id)
 service_repository.save(service_2)
 
 
-booking_1 = Booking("Properties in Currie",1,"Currie",client_1.id,service_2.id,photographer_1.id )
+booking_1 = Booking("Properties in Currie", "Currie", 1,
+                    '2021-08-22 10:00:00', '2021-08-22 12:00', client_1.id, service_2.id, photographer_1.id)
 booking_repository.save(booking_1)
 
 
@@ -44,10 +45,6 @@ print(client_repository.select(1))
 print(booking_repository.select(1))
 print(photographer_repository.select(1))
 print(service_repository.select(1))
-
-for x in client_repository:
-    print( x, __dict__)
-
 print(booking_repository.select_all())
 print(photographer_repository.select_all())
 print(service_repository.select_all())

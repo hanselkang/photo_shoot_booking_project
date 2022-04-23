@@ -6,9 +6,9 @@ import repositories.photographer_repository as photographer_repository
 
 
 def save(booking):
-    sql = "INSERT INTO bookings (name, address, num_of_group, client_id, service_id, photographer_id) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
+    sql = "INSERT INTO bookings (name, address, num_of_group, photoshoot_start_time, photoshoot_end_time, client_id, service_id, photographer_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING id"
     values = [booking.name,
-              booking.address, booking.num_of_group, booking.client_id, booking.service_id, booking.photographer_id]
+              booking.address, booking.num_of_group, booking.photoshoot_start_time, booking.photoshoot_end_time, booking.client_id, booking.service_id, booking.photographer_id]
     results = run_sql(sql, values)
     id = results[0]['id']
     booking.id = id
@@ -21,7 +21,7 @@ def select(id):
     service = service_repository.select(result["service_id"])
     photographer = photographer_repository.select(result["photographer_id"])
     booking = Booking(result["name"], result["address"],
-                    result["num_of_group"], client, service, photographer, result["id"])
+                      result["num_of_group"], result["photoshoot_start_time"], result["photoshoot_end_time"], client, service, photographer, result["id"])
     return booking
 
 
@@ -34,7 +34,7 @@ def select_all():
         service = service_repository.select(result["service_id"])
         photographer = photographer_repository.select(result["photographer_id"])
         booking = Booking(result["name"], result["address"],
-                          result["num_of_group"], client, service, photographer, result["id"])
+                          result["num_of_group"], result["photoshoot_start_time"], result["photoshoot_end_time"], client, service, photographer, result["id"])
         bookings.append(booking)
     return bookings
 

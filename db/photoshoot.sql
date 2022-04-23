@@ -34,6 +34,8 @@ CREATE TABLE bookings (
     name VARCHAR(255),
     address VARCHAR(255),
     num_of_group INT,
+    photoshoot_start_time TIMESTAMP,
+    photoshoot_end_time TIMESTAMP,
     client_id INT NULL REFERENCES clients(id) ON DELETE CASCADE,
     service_id INT NULL REFERENCES services(id) ON DELETE CASCADE,
     photographer_id INT NULL REFERENCES photographers(id) ON DELETE CASCADE
