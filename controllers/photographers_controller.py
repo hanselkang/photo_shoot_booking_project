@@ -1,6 +1,7 @@
 from flask import Blueprint, Flask, redirect, render_template, request
 from models.photographer import Photographer
 import repositories.photographer_repository as photographer_repository
+import repositories.client_repository as client_repository
 
 photographers_blueprint = Blueprint("photographers", __name__)
 
@@ -9,6 +10,15 @@ photographers_blueprint = Blueprint("photographers", __name__)
 def photographers():
     photographers = photographer_repository.select_all()
     return render_template("photographers/photographers.html", photographers=photographers)
+
+# show list of clients, services
+
+@photographers_blueprint.route("/photographers/<id>")
+def show_photographer(id):
+    clients = photographer_repository.select_clients_of_photographer(id)
+    services = photographer_repository.select_service_of_photographer(id)
+    photographer = photographer_repository.select(id)
+    return render_template("photographers/client_list.html", clients=clients, services=services, photographer=photographer)
 
 
 # new

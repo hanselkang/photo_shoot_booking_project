@@ -2,10 +2,26 @@
 {% block content %}
 <h2>{{ photographer.name }}</h2>
 
-<h3>Bookings</h3>
+<h3>Clients</h3>
+{% for client in clients %}
 <ul>
-    {% for client in clients %}
+    
     <li>{{ client.name }}</li>
-    {% endfor %}
+    <li>{{ client.age }}</li>
+    <li>{{ client.email }}</li>
+    <li>{{ client.contact }}</li>
+    
 </ul>
+{% endfor %}
+
+<h3>Service</h3>
+{% for serv in services %}
+<ul>
+    <li>{{ serv.hours }}</li>
+    <li>{{ serv.photo_type }}</li>
+</ul>
+{% endfor %}
+
+
+
 {% endblock %}

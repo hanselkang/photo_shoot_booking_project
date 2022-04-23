@@ -1,6 +1,7 @@
 from db.run_sql import run_sql
 from models.photographer import Photographer
 from models.client import Client
+from models.service import Service
 
 
 def save(photographer):
@@ -48,3 +49,27 @@ def update(photographer):
     values = [photographer.name,
               photographer.email, photographer.portfolio_address, photographer.id]
     run_sql(sql, values)
+
+
+def select_clients_of_photographer(id):
+    clients = []
+    sql = "SELECT clients.* FROM clients INNER JOIN bookings ON bookings.client_id = clients.id WHERE bookings.photographer_id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    for result in results:
+        client = Client(result["name"], result["client_from"], result["email"],
+                        result["age"], result["contact"])
+        clients.append(client)
+    return clients
+
+
+def select_service_of_photographer(id):
+    services = []
+    sql = "SELECT services.* FROM services INNER JOIN bookings ON bookings.service_id = services.id WHERE bookings.photographer_id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    for result in results:
+        service = Service(result["photo_type"],
+                          result["hours"], result["price"])
+        services.append(service)
+    return services
