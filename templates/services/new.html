@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Add a New Photo Shoot service</h2>
+
+<form action="/services" method="POST">
+    <div>
+        <label for="photo_type">Type : </label>
+        <input type="text" id="photo_type" name="photo_type">
+    </div>
+    <div>
+        <label for="hours">Hours : </label>
+        <input type="text" id="hours" name="hours">
+    </div>
+    <div>
+        <label for="price">Price : </label>
+        <input type="datetime" id="price" name="price">
+    </div>
+    <div>
+        <label for="photographer">Photographer : </label>
+        <select name="photographer_id" id="photographer">
+            {% for photographer in photographers %}
+            <option value="{{ photographer.id }}">
+                {{ photographer.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}

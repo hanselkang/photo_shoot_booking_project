@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Add a New Photo Shoot Booking</h2>
+
+<form action="/clients" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+    </div>
+    <div>
+        <label for="client_from">Where are you from:</label>
+        <input type="text" id="client_from" name="client_from">
+    </div>
+    <div>
+        <label for="email">Your email:</label>
+        <input type="text" id="email" name="email">
+    </div>
+    <div>
+        <label for="age">Age :</label>
+        <input type="datetime" id="age" name="age">
+    </div>
+    <div>
+        <label for="contact">Phone Number :</label>
+        <input type="contact" id="contact" name="contact">
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}

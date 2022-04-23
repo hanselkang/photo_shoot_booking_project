@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Add a New Photo Shoot Booking</h2>
+
+<form action="/photographers" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+    </div>
+    <div>
+        <label for="email">email:</label>
+        <input type="text" id="email" name="email">
+    </div>
+    <div>
+        <label for="portfolio_address">Portfolio :</label>
+        <input type="portfolio_address" id="portfolio_address" name="portfolio_address">
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}
