@@ -16,7 +16,7 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
     client = Client(result["name"], result["client_from"], result["email"],
-                    result["age"], result["contact"])
+                    result["age"], result["contact"], result["id"])
     return client
 
 
@@ -26,7 +26,7 @@ def select_all():
     results = run_sql(sql)
     for result in results:
         client = Client(result["name"], result["client_from"], result["email"],
-                        result["age"], result["contact"])
+                        result["age"], result["contact"], result["id"])
         clients.append(client)
     return clients
 

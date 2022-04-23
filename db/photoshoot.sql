@@ -25,7 +25,7 @@ CREATE TABLE services (
     photo_type VARCHAR(255),
     hours INT,
     price INT,
-    photographer INT NULL REFERENCES photographers(id) ON DELETE CASCADE
+    photographer_id SERIAL REFERENCES photographers(id)
 );
 
 CREATE TABLE bookings (
@@ -35,7 +35,6 @@ CREATE TABLE bookings (
     num_of_group INT,
     photoshoot_start_time TIMESTAMP,
     photoshoot_end_time TIMESTAMP,
-    client INT NULL REFERENCES clients(id) ON DELETE CASCADE,
-    service INT NULL REFERENCES services(id) ON DELETE CASCADE,
-    photographer INT NULL REFERENCES photographers(id) ON DELETE CASCADE
+    client_id SERIAL REFERENCES clients(id) ON DELETE CASCADE,
+    service_id SERIAL REFERENCES services(id) ON DELETE CASCADE
 );

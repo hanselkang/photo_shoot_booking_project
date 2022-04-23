@@ -11,7 +11,7 @@
     <p>Age : {{ client.age }}</p>
     <p>Contact : {{ client.contact }}</p>
     <p>ID : {{ client.id }}</p>
-    <a href="/clients/{{ client.id }}/edit"></a>
+    <a href="/clients/{{ client.id }}/edit">edit</a>
     <form action="/clients/{{ client.id }}/delete" method="POST">
         <input type="submit" value="Delete">
     </form>

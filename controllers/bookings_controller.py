@@ -10,6 +10,8 @@ import repositories.photographer_repository as photographer_repository
 bookings_blueprint = Blueprint("bookings", __name__)
 
 # index
+
+
 @bookings_blueprint.route("/bookings")
 def bookings():
     clients = client_repository.select_all()
@@ -17,14 +19,17 @@ def bookings():
     return render_template("bookings/bookings.html", bookings=bookings, clients=clients)
 
 # new
+
+
 @bookings_blueprint.route("/bookings/new")
 def new_booking():
     clients = client_repository.select_all()
     services = service_repository.select_all()
-    photographers = photographer_repository.select_all()
-    return render_template("bookings/new.html", clients=clients, services=services, photographers=photographers)
+    return render_template("bookings/new.html", clients=clients, services=services)
 
 # creat
+
+
 @bookings_blueprint.route("/bookings", methods=["POST"])
 def create_booking():
     name = request.form["name"]
@@ -35,13 +40,11 @@ def create_booking():
 
     client_id = request.form["client_id"]
     service_id = request.form["service_id"]
-    photographer_id = request.form["photographer_id"]
 
     client = client_repository.select(client_id)
     service = service_repository.select(service_id)
-    photographer = photographer_repository.select(photographer_id)
 
     new_booking = Booking(name, address, num_of_group, photoshoot_start_time,
-                          photoshoot_end_time, client.id, service.id, photographer.id)
+                          photoshoot_end_time, client, service)
     booking_repository.save(new_booking)
     return redirect("/bookings")

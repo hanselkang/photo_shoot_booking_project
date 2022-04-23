@@ -15,7 +15,7 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
     photographer = Photographer(result["name"], result["email"],
-                                result["portfolio_address"])
+                                result["portfolio_address"], result["id"])
     return photographer
 
 
@@ -25,7 +25,7 @@ def select_all():
     results = run_sql(sql)
     for result in results:
         photographer = Photographer(result["name"], result["email"],
-                                    result["portfolio_address"])
+                                    result["portfolio_address"], result["id"])
         photographers.append(photographer)
     return photographers
 

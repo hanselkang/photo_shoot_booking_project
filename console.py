@@ -35,30 +35,30 @@ photographer_1 = Photographer(
 photographer_repository.save(photographer_1)
 
 
-service_1 = Service("Portrait", 'Royal Mile', 2, 160, photographer_1.id)
+service_1 = Service("Portrait", 2, 160, photographer_1)
 service_repository.save(service_1)
 
-service_2 = Service("Interior", "Currie", 1, 100, photographer_1.id)
+service_2 = Service("Interior", 1, 100, photographer_1)
 service_repository.save(service_2)
 
-service_3 = Service("Portrait", "Edinburgh", 2, 160, photographer_1.id)
+service_3 = Service("Portrait", 2, 160, photographer_1)
 service_repository.save(service_3)
 
 
 booking_1 = Booking("Properties in Currie", "Currie", 1,
-                    '2021-08-22 10:00:00', '2021-08-22 12:00', client_1.id, service_2.id, photographer_1.id)
+                    '2021-08-22 10:00:00', '2021-08-22 12:00', client_1, service_2)
 booking_repository.save(booking_1)
 
-booking_2 = Booking("Graduation Ceremony", "Edinburhg", 2,
-                    '2021-11-22 14:00:00', '2021-11-22 16:00', client_2.id, service_3.id, photographer_1.id)
+booking_2 = Booking("Graduation Ceremony", "Edinburgh", 2,
+                    '2021-11-22 14:00:00', '2021-11-22 16:00', client_2, service_3)
 booking_repository.save(booking_2)
 
-booking_3 = Booking("Holiday Outdoor Portrait", "Edinburhg", 2,
-                    '2021-12-23 16:00:00', '2021-12-24 18:00', client_3.id, service_1.id, photographer_1.id)
+booking_3 = Booking("Holiday Outdoor Portrait", "Loch", 2,
+                    '2021-12-23 16:00:00', '2021-12-24 18:00', client_3, service_1)
 booking_repository.save(booking_3)
 
-booking_4 = Booking("Holiday Outdoor Portrait", "Edinburhg", 1,
-                    '2021-12-23 16:00:00', '2021-12-24 18:00', client_4.id, service_1.id, photographer_1.id)
+booking_4 = Booking("Holiday Outdoor Portrait", "Bridge", 1,
+                    '2021-12-23 16:00:00', '2021-12-24 18:00', client_4, service_1)
 booking_repository.save(booking_4)
 
 
