@@ -40,7 +40,7 @@ def new_booking_confirmation():
 @booking_confirmations_blueprint.route("/booking_confirmations", methods=["POST"])
 def create_booking_confirmation():
     name = request.form["name"]
-    address = request.form["address"]
+    places = request.form["places"]
     num_of_group = request.form["num_of_group"]
     photoshoot_start_time = request.form["photoshoot_start_time"]
     photoshoot_end_time = request.form["photoshoot_end_time"]
@@ -53,7 +53,7 @@ def create_booking_confirmation():
     service = service_repository.select(service_id)
     photographer = service_repository.select(photographer_id)
 
-    new_booking_confirmation = BookingConfirmation(name, address, num_of_group, photoshoot_start_time,
+    new_booking_confirmation = BookingConfirmation(name, places, num_of_group, photoshoot_start_time,
                           photoshoot_end_time, client, service, photographer)
     booking_confirmation_repository.save(new_booking_confirmation)
     return redirect("/booking_confirmations")
@@ -71,7 +71,7 @@ def edit_booking_confirmation(id):
 @booking_confirmations_blueprint.route("/booking_confirmations/<id>", methods=["GET", "POST"])
 def update_booking_confirmation(id):
     name = request.form["name"]
-    address = request.form["address"]
+    places = request.form["places"]
     num_of_group = request.form["num_of_group"]
     photoshoot_start_time = request.form["photoshoot_start_time"]
     photoshoot_end_time = request.form["photoshoot_end_time"]
@@ -84,7 +84,7 @@ def update_booking_confirmation(id):
     service = service_repository.select(service_id)
     photographer = service_repository.select(photographer_id)
 
-    edit_booking_confirmation = BookingConfirmation(name, address, num_of_group, photoshoot_start_time,
+    edit_booking_confirmation = BookingConfirmation(name, places, num_of_group, photoshoot_start_time,
                           photoshoot_end_time, client.id, service.id, photographer.id, id)
     booking_confirmation_repository.update(edit_booking_confirmation)
     return redirect("/booking_confirmations")

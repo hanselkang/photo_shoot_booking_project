@@ -58,7 +58,7 @@ def select_clients_of_photographer(id):
     results = run_sql(sql, values)
     for result in results:
         client = Client(result["name"], result["client_from"], result["email"],
-                        result["age"], result["contact"])
+                        result["birthdate"], result["contact"])
         clients.append(client)
     return clients
 

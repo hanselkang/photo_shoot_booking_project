@@ -32,7 +32,28 @@ def new_booking():
 @bookings_blueprint.route("/bookings", methods=["POST"])
 def create_booking():
     name = request.form["name"]
-    address = request.form["address"]
+    places = []
+    if request.form.get("circuslane"):
+        places.append("CircusLane ")
+    if request.form.get("deanvillage"):
+        places.append("DeanVillage ")
+    if request.form.get("newtown"):
+        places.append("NewTown ")
+    if request.form.get("caltonhill"):
+        places.append("CaltonHill ")
+    if request.form.get("princesstreet"):
+        places.append("PrincesStreetGarden ")
+    if request.form.get("oldtown"):
+        places.append("OldTown")
+    if request.form.get("grassmarket"):
+        places.append("GrassMarket")
+    if request.form.get("holyroodpark"):
+        places.append("HolyroodPark ")
+    print(places)
+    str_places = ''
+    for place in places:
+        str_places += place
+    print(str_places)
     num_of_group = request.form["num_of_group"]
     photoshoot_start_time = request.form["photoshoot_start_time"]
     photoshoot_end_time = request.form["photoshoot_end_time"]
@@ -44,8 +65,7 @@ def create_booking():
     client = client_repository.select(client_id)
     service = service_repository.select(service_id)
     photographer = service_repository.select(photographer_id)
-
-    new_booking = Booking(name, address, num_of_group, photoshoot_start_time,
+    new_booking = Booking(name, str_places, num_of_group, photoshoot_start_time,
                           photoshoot_end_time, client, service, photographer)
     booking_repository.save(new_booking)
     return redirect("/bookings")
@@ -75,7 +95,7 @@ def confirm_booking(id):
 @bookings_blueprint.route("/bookings/<id>", methods=["GET", "POST"])
 def update_booking(id):
     name = request.form["name"]
-    address = request.form["address"]
+    places = request.form["places"]
     num_of_group = request.form["num_of_group"]
     photoshoot_start_time = request.form["photoshoot_start_time"]
     photoshoot_end_time = request.form["photoshoot_end_time"]
@@ -83,12 +103,11 @@ def update_booking(id):
     client_id = request.form["client_id"]
     service_id = request.form["service_id"]
     photographer_id = request.form["photographer_id"]
-
     client = client_repository.select(client_id)
     service = service_repository.select(service_id)
     photographer = service_repository.select(photographer_id)
 
-    edit_booking = Booking(name, address, num_of_group, photoshoot_start_time,
+    edit_booking = Booking(name, places, num_of_group, photoshoot_start_time,
                           photoshoot_end_time, client.id, service.id, photographer.id, id)
     booking_repository.update(edit_booking)
     return redirect("/bookings")

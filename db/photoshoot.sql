@@ -31,21 +31,29 @@ CREATE TABLE services (
 CREATE TABLE bookings (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    address VARCHAR(255),
+    places TEXT,
+    -- places text,
     num_of_group INT,
     photoshoot_start_time TIMESTAMP,
     photoshoot_end_time TIMESTAMP,
     client_id SERIAL REFERENCES clients(id) ON DELETE CASCADE,
-    service_id SERIAL REFERENCES services(id) ON DELETE CASCADE,    photographer_id SERIAL REFERENCES photographers(id) ON DELETE CASCADE
+    service_id SERIAL REFERENCES services(id) ON DELETE CASCADE,    
+    photographer_id SERIAL REFERENCES photographers(id) ON DELETE CASCADE
 );
 
 CREATE TABLE booking_confirmations (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    address VARCHAR(255),
+    places TEXT,
+    -- places text,
     num_of_group INT,
     photoshoot_start_time TIMESTAMP,
     photoshoot_end_time TIMESTAMP,
     client_id SERIAL REFERENCES clients(id) ON DELETE CASCADE,
-    service_id SERIAL REFERENCES services(id) ON DELETE CASCADE,    photographer_id SERIAL REFERENCES photographers(id) ON DELETE CASCADE
+    service_id SERIAL REFERENCES services(id) ON DELETE CASCADE,    
+    photographer_id SERIAL REFERENCES photographers(id) ON DELETE CASCADE
 );
+
+-- CREATE TABLE Places
+--     id 
+--     booking_id 
