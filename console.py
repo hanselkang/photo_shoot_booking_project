@@ -18,16 +18,16 @@ photographer_repository.delete_all()
 client_repository.delete_all()
 
 
-client_1 = Client("George", "New Zealand", "George.g@gmail.g", 35, "092991")
+client_1 = Client("George", "New Zealand", "George.g@gmail.g", "19800113", "092991")
 client_repository.save(client_1)
 
-client_2 = Client("June", "Canada", "June.j@jmail.j", 23, "092399")
+client_2 = Client("June", "Canada", "June.j@jmail.j", "19880324", "092399")
 client_repository.save(client_2)
 
-client_3 = Client("Alice", "Birmingham", "Alice.a@amail.a", 28, "073299")
+client_3 = Client("Alice", "Birmingham", "Alice.a@amail.a", "19920822", "073299")
 client_repository.save(client_3)
 
-client_4 = Client("Claire", "South Korea", "Clare.c@cmail.c", 30, "072129")
+client_4 = Client("Claire", "South Korea", "Clare.c@cmail.c", "19771201", "072129")
 client_repository.save(client_4)
 
 photographer_1 = Photographer(

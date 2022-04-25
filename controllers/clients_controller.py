@@ -23,9 +23,9 @@ def create_client():
     name = request.form["name"]
     client_from = request.form["client_from"]
     email = request.form["email"]
-    age = request.form["age"]
+    birthdate = request.form["birthdate"]
     contact = request.form["contact"]
-    new_client = Client(name, client_from, email, age,
+    new_client = Client(name, client_from, email, birthdate,
                         contact)
     client_repository.save(new_client)
     return redirect("/clients")
@@ -42,9 +42,9 @@ def update_client(id):
     name = request.form["name"]
     client_from = request.form["client_from"]
     email = request.form["email"]
-    age = request.form["age"]
+    birthdate = request.form["birthdate"]
     contact = request.form["contact"]
-    edit_client = Client(name, client_from, email, age,
+    edit_client = Client(name, client_from, email, birthdate,
                         contact, id)
     client_repository.update(edit_client)
     return redirect("/clients")

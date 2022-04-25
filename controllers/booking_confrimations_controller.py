@@ -17,6 +17,16 @@ def booking_confirmations():
     photographers = photographer_repository.select_all()
     return render_template("booking_confirmations/booking_confirmations.html", booking_confirmations=booking_confirmations, clients=clients, photographers=photographers)
 
+# client index
+@booking_confirmations_blueprint.route("/bookings/clients_booking_list")
+def bookings_list_for_clients():
+    clients = client_repository.select_all()
+    booking_confirmations = booking_confirmation_repository.select_all()
+    photographers = photographer_repository.select_all()
+    hidden_part = '***'
+    return render_template("bookings/clients_see_booking_list.html", booking_confirmations=booking_confirmations, clients=clients, photographers=photographers, hidden_part = hidden_part)
+    
+
 # new
 @booking_confirmations_blueprint.route("/booking_confirmations/new")
 def new_booking_confirmation():

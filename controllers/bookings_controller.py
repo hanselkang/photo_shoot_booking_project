@@ -18,6 +18,8 @@ def bookings():
     photographers = photographer_repository.select_all()
     return render_template("bookings/bookings.html", bookings=bookings, clients=clients, photographers=photographers)
 
+
+
 # new
 @bookings_blueprint.route("/bookings/new")
 def new_booking():
@@ -66,7 +68,6 @@ def confirm_booking(id):
     services = service_repository.select_all()
     booking_confirmation = booking_repository.select_all
     photographers = photographer_repository.select_all()
-    booking_repository.delete(id)
     return render_template('bookings/booking_to_confirmation.html', booking=booking, clients=clients, services=services, photographers=photographers, booking_confirmation=booking_confirmation)
 
 
@@ -98,6 +99,9 @@ def update_booking(id):
 def delete_booking(id):
     booking_repository.delete(id)
     return redirect('/bookings')
+
+
+
 
 
 # delete all

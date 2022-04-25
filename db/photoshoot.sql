@@ -9,7 +9,7 @@ CREATE TABLE clients (
     name VARCHAR(255),
     client_from VARCHAR(255),
     email VARCHAR(255),
-    age INT,
+    birthdate INT,
     contact VARCHAR(255)
 );
 

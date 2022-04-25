@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Bookings</h2>
+
+
+{% for booking in booking_confirmations %}
+<hr>
+<div>
+    <section>
+        <p>Booking Name: {{ booking.name }}</p>
+        <p>Type : {{ booking.service.photo_type }}</p>
+        <p>Photo Shoot Place : {{ booking.address }}</p>
+        <p>Number of People: {{ booking.num_of_group }}</p>
+        <p>From : {{ booking.photoshoot_start_time }}</p>
+        <p>Till : {{ booking.photoshoot_end_time }}</p>
+        <p>Client Name : {{ booking.client.name[0:-2]+hidden_part
+            }}</p>
+        <p>Client Contact : {{ booking.client.contact[0:-2]+hidden_part
+            }}</p>
+        <p>Photographer : {{ booking.photographer.name }}</p>
+    </section>
+</div>
+<hr>
+{% endfor %}
+
+
+{% endblock %}
