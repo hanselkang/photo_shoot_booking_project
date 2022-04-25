@@ -46,9 +46,9 @@ def create_booking():
     if request.form.get("princesstreet"):
         places.append("PrincesStreetGarden ")
     if request.form.get("oldtown"):
-        places.append("OldTown")
+        places.append("OldTown ")
     if request.form.get("grassmarket"):
-        places.append("GrassMarket")
+        places.append("Grassmarket ")
     if request.form.get("holyroodpark"):
         places.append("HolyroodPark ")
     str_places = ''
@@ -71,8 +71,6 @@ def create_booking():
     return redirect("/bookings")
 
 # edit
-
-
 @bookings_blueprint.route("/bookings/<id>/edit")
 def edit_booking(id):
     booking = booking_repository.select(id)
@@ -109,9 +107,9 @@ def update_booking(id):
     if request.form.get("princesstreet"):
         places.append("PrincesStreetGarden ")
     if request.form.get("oldtown"):
-        places.append("OldTown")
+        places.append("OldTown ")
     if request.form.get("grassmarket"):
-        places.append("GrassMarket")
+        places.append("Grassmarket ")
     if request.form.get("holyroodpark"):
         places.append("HolyroodPark ")
     str_places = ''

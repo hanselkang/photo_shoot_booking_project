@@ -52,9 +52,9 @@ def create_booking_confirmation():
     if request.form.get("princesstreet"):
         places.append("PrincesStreetGarden ")
     if request.form.get("oldtown"):
-        places.append("OldTown")
+        places.append("OldTown ")
     if request.form.get("grassmarket"):
-        places.append("GrassMarket")
+        places.append("Grassmarket ")
     if request.form.get("holyroodpark"):
         places.append("HolyroodPark ")
     str_places = ''
@@ -102,9 +102,9 @@ def update_booking_confirmation(id):
     if request.form.get("princesstreet"):
         places.append("PrincesStreetGarden ")
     if request.form.get("oldtown"):
-        places.append("OldTown")
+        places.append("OldTown ")
     if request.form.get("grassmarket"):
-        places.append("GrassMarket")
+        places.append("Grassmarket ")
     if request.form.get("holyroodpark"):
         places.append("HolyroodPark ")
     str_places = ''

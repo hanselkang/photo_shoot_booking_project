@@ -11,6 +11,86 @@
     <p>Till : {{ booking.photoshoot_end_time }}</p>
     <p>Client Name : {{ booking.client.name }}</p>
     <p>Photographer : {{ booking.photographer.name }}</p>
+    <div>
+        <table class="map">
+            <thead>
+                <tr>
+                    <th colspan="6"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="tr1">
+                    <td></td>
+                    <td>{% if "CircusLane" in booking.places
+                    :%}
+                    <div class="dot">●</div>
+                    <div class="map">Circus Lane</div class="map">
+                    {% endif %}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>{% if "NewTown" in booking.places
+                    :%}
+                    <div class="dot">●</div>
+                    <div class="map">New Town</div class="map">
+                    {% endif %}</td></td>
+                    <td>{% if "CaltonHill" in booking.places
+                    :%}
+                    <div class="dot">●</div>
+                    <div class="map">Calton Hill</div class="map">
+                    {% endif %}</td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="tr3">
+                    <td>{% if "DeanVillage" in booking.places
+                    :%}
+                    <div class="dot">●</div>
+                    <div class="map">DeanVillage</div class="map">
+                    {% endif %}</td></td>
+                    <td></td>
+                    <td>{% if "PrincesStreetGarden" in booking.places
+                    :%}
+                    <div class="dot">●</div>
+                    <div class="map">Prices Street Garden</div class="map">
+                    {% endif %}</td></td>
+                    <td>{% if "OldTown" in booking.places
+                    :%}
+                    <div class="dot">●</div>
+                    <div class="map">Old Town</div class="map">
+                    {% endif %}</td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="tr3">
+                    <td></td>
+                    <td></td>
+                    <td>{% if "Grassmarket" in booking.places
+                    :%}
+                    <div class="dot">●</div>
+                    <div class="map">Grassmarket</div class="map">
+                    {% endif %}</td></td>
+                    <td></td>
+                    <td>{% if "HolyroodPark" in booking.places
+                    :%}
+                    <div class="dot">●</div>
+                    <div class="map">Holyrood Park</div class="map">
+                    {% endif %}</td></td>
+                    <td></td>
+                </tr>
+                <tr class="tr4">
+                    <td colspan="6"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+
     <a href="/bookings/{{ booking.id }}/confirm">confirm</a>
     <a href="/bookings/{{ booking.id }}/edit">edit</a>
     <form action="/bookings/{{ booking.id }}/delete" method="POST">
