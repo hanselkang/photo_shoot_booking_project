@@ -1,3 +1,4 @@
+from controllers.booking_confrimations_controller import booking_confirmations
 from flask import Blueprint, Flask, redirect, render_template, request
 from models.booking import Booking
 
@@ -55,6 +56,19 @@ def edit_booking(id):
     services = service_repository.select_all()
     photographers = photographer_repository.select_all()
     return render_template('bookings/edit.html', booking=booking, clients=clients, services = services, photographers= photographers)
+    
+
+# booking to confirmation form
+@bookings_blueprint.route("/bookings/<id>/confirm")
+def confirm_booking(id):
+    booking = booking_repository.select(id)
+    clients = client_repository.select_all()
+    services = service_repository.select_all()
+    booking_confirmation = booking_repository.select_all
+    photographers = photographer_repository.select_all()
+    booking_repository.delete(id)
+    return render_template('bookings/booking_to_confirmation.html', booking=booking, clients=clients, services=services, photographers=photographers, booking_confirmation=booking_confirmation)
+
 
 # UPDATE
 @bookings_blueprint.route("/bookings/<id>", methods=["GET", "POST"])

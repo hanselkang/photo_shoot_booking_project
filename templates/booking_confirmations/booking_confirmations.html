@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Booking_confirmations</h2>
+{% for booking_confirmation in booking_confirmations %}
+<section>
+    <p>Booking Name: {{ booking_confirmation.name }}</p>
+    <p>Type : {{ booking_confirmation.service.photo_type }}</p>
+    <p>Photo Shoot Place : {{ booking_confirmation.address }}</p>
+    <p>Number of People: {{ booking_confirmation.num_of_group }}</p>
+    <p>From : {{ booking_confirmation.photoshoot_start_time }}</p>
+    <p>Till : {{ booking_confirmation.photoshoot_end_time }}</p>
+    <p>Client Name : {{ booking_confirmation.client.name }}</p>
+    <p>Photographer : {{ booking_confirmation.photographer.name }}</p>
+    <a href="/booking_confirmations/{{ booking_confirmation.id }}/edit">edit</a>
+    <form action="/booking_confirmations/{{ booking_confirmation.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+</section>
+
+{% endfor %}
+
+{% endblock %}
