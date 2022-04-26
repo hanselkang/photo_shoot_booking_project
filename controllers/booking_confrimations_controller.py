@@ -1,3 +1,4 @@
+from controllers.bookings_controller import bookings
 from flask import Blueprint, Flask, redirect, render_template, request
 from models.booking_confirmation import BookingConfirmation
 
@@ -5,6 +6,7 @@ import repositories.client_repository as client_repository
 import repositories.booking_confirmation_repository as booking_confirmation_repository
 import repositories.service_repository as service_repository
 import repositories.photographer_repository as photographer_repository
+import repositories.booking_repository as booking_repository
 
 booking_confirmations_blueprint = Blueprint("booking_confirmations", __name__)
 
@@ -75,6 +77,7 @@ def create_booking_confirmation():
     new_booking_confirmation = BookingConfirmation(name, str_places, num_of_group, photoshoot_start_time,
                           photoshoot_end_time, client, service, photographer)
     booking_confirmation_repository.save(new_booking_confirmation)
+    booking_repository.delete(request.form["booking_id"])
     return redirect("/booking_confirmations")
 
 # edit

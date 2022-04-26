@@ -1,6 +1,7 @@
 from controllers.booking_confrimations_controller import booking_confirmations
 from flask import Blueprint, Flask, redirect, render_template, request
 from models.booking import Booking
+import time
 
 import repositories.client_repository as client_repository
 import repositories.booking_repository as booking_repository
@@ -12,6 +13,14 @@ bookings_blueprint = Blueprint("bookings", __name__)
 # index
 
 
+@bookings_blueprint.route("/")
+def index():
+    bookings = booking_repository.select_all()
+    delay = time.sleep(1)
+    return render_template("index.html", bookings=bookings, delay = delay)
+
+
+# booking index
 @bookings_blueprint.route("/bookings")
 def bookings():
     clients = client_repository.select_all()
@@ -89,7 +98,6 @@ def confirm_booking(id):
     booking_confirmation = booking_repository.select_all
     photographers = photographer_repository.select_all()
     return render_template('bookings/booking_to_confirmation.html', booking=booking, clients=clients, services=services, photographers=photographers, booking_confirmation=booking_confirmation)
-
 
 # UPDATE
 @bookings_blueprint.route("/bookings/<id>", methods=["GET", "POST"])
