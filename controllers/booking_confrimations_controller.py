@@ -1,4 +1,3 @@
-from controllers.bookings_controller import bookings
 from flask import Blueprint, Flask, redirect, render_template, request
 from models.booking_confirmation import BookingConfirmation
 

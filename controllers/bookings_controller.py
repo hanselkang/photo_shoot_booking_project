@@ -77,7 +77,7 @@ def create_booking():
     new_booking = Booking(name, str_places, num_of_group, photoshoot_start_time,
                           photoshoot_end_time, client, service, photographer)
     booking_repository.save(new_booking)
-    return redirect("/bookings")
+    return redirect("/bookings/clients_booking_list")
 
 # edit
 @bookings_blueprint.route("/bookings/<id>/edit")

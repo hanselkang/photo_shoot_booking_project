@@ -4,7 +4,7 @@
 
 <form action="/booking_confirmations" method="POST">
     <div>
-        <label for="name">Name:</label>
+        <label for="name">Photo Shoot Event Title:</label>
         <input type="text" id="name" name="name" value="{{ booking.name }}">
     </div>
     <div>
@@ -104,7 +104,7 @@
         </select>
     </div>
     <div>
-        <input type="hidden" name ="booking_id">
+        <input type="hidden" name ="booking_id" value={{ booking.id }}>
         <input type="submit">
     </div>
 </form>

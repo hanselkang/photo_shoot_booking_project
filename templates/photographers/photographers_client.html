@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Photographers</h1>
+{% for photographer in photographers %}
+<section >
+    <table class="put_center">
+        <thead>
+            <tr>
+                <td><img src="{{ url_for('static', filename='/img/profile1.png') }}" alt="hansels profile picture" width="200px"></td>
+                <td class="left"></td>
+                <td class="center"><h2>{{ photographer.name }}</h2></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td class="left">email :</td>
+                <td class="center">{{ photographer.email }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="left">Portfolio :</td>
+                <td class="center"><a href="{{ photographer.portfolio_address }}">Click here</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <p> </p>
+    <p> </p>
+    <p>
+    </p>
+    <br>
+    <br>
+</section>
+{% endfor %}
+{% endblock %}

@@ -5,11 +5,24 @@ import repositories.client_repository as client_repository
 
 photographers_blueprint = Blueprint("photographers", __name__)
 
+
+# to password
+@photographers_blueprint.route("/sign_in")
+def photographers_sign_in():
+    return render_template("photographer_index.html")
+
 # index
 @photographers_blueprint.route("/photographers")
 def photographers():
     photographers = photographer_repository.select_all()
     return render_template("photographers/photographers.html", photographers=photographers)
+
+
+# index for client
+@photographers_blueprint.route("/photographers_client")
+def photographers_client():
+    photographers = photographer_repository.select_all()
+    return render_template("photographers/photographers_client.html", photographers=photographers)
 
 # show list of clients, services
 

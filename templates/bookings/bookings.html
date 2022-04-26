@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base2.html" %}
 {% block content %}
 <h2>Bookings</h2>
 {% for booking in bookings %}
@@ -11,7 +11,7 @@
     <p>Till : {{ booking.photoshoot_end_time }}</p>
     <p>Client Name : {{ booking.client.name }}</p>
     <p>Photographer : {{ booking.photographer.name }}</p>
-    <div>
+    <div class="booking">
         <table class="map">
             <thead>
                 <tr>
