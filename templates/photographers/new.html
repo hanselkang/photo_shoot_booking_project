@@ -1,24 +1,36 @@
 {% extends "base2.html" %}
 {% block content %}
 
-<h2>Add a New Photo Shoot Booking</h2>
+<h2>Register a New Photographer</h2>
 
 <form action="/photographers" method="POST">
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-    </div>
-    <div>
-        <label for="email">email:</label>
-        <input type="text" id="email" name="email">
-    </div>
-    <div>
-        <label for="portfolio_address">Portfolio :</label>
-        <input type="portfolio_address" id="portfolio_address" name="portfolio_address">
-    </div>
-    <div>
-        <input type="submit">
-    </div>
+    <table class="put_center">
+        <thead>
+            <tr>
+                <div>
+                    <td class="left"><label for="name">Name:</label></td>
+                    <td><input type="text" id="name" name="name" placeholder="Name" required></td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td class="left"><label for="email">email:</label></td>
+                    <td><input type="text" id="email" name="email"placeholder="example@example.exa" required></td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td class="left"><label for="portfolio_address">Portfolio :</label></td>
+                    <td><input type="portfolio_address" id="portfolio_address" name="portfolio_address" placeholder="https://instagram.com" required></td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td colspan="2" class="center"><input type="submit"></td>
+                </div>
+            </tr>
+        </thead>
+    </table>
 </form>
 
 {% endblock %}

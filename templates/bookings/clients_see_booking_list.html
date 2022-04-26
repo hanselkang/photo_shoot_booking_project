@@ -1,15 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="submenu_register">
-    <a href="/clients/new_client_byc" class="register">1. Register a Client</a>
-    <br>
-    <a href="/bookings/new" class="register">2. Book a Photoshoot</a>
+<div>
+    <table class="put_center">
+        <thead>
+            <tr>
+                <td class="center"><a href="/clients/new_client_byc" class="btn_index">1. Register a Client</a></td>
+                <td class="center"><a href="/bookings/new" class="btn_index">2. Book a Photoshoot</a></td>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+
 </div>
 <img src="{{ url_for('static', filename='/img/confirmed.png') }}" alt="confirmed logo" class="confirmedlogo">
 {% for booking in booking_confirmations %}
 
 <div class="booking">
-   
+
     <section class="booking_byc">
 
         <table class="list">

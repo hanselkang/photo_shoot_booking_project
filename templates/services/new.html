@@ -4,20 +4,51 @@
 <h2>Add a New Photo Shoot service</h2>
 
 <form action="/services" method="POST">
+    <table class="put_center">
+        <thead>
+            <tr>
+                <div>
+                    <td class="left">
+                        <label for="photo_type">Type : </label>
+                    </td>
+                    <td class="center">
+                        <input type="text" id="photo_type" name="photo_type">
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td class="left">
+                        <label for="hours">Hours : </label>
+                    </td>
+                    <td class="center">
+                        <input type="text" id="hours" name="hours">
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td class="left"><label for="hours">Hours : </label></td>
+                    <td class="center"><input type="text" id="hours" name="hours"></td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td class="left"><label for="price">Price : </label></td>
+                    <td class="center"><input type="datetime" id="price" name="price"></td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td colspan="2" class="center">
+                        <input type="submit">
+                    </td>
+                </div>
+            </tr>
+        </thead>
+    </table>
     <div>
-        <label for="photo_type">Type : </label>
-        <input type="text" id="photo_type" name="photo_type">
-    </div>
-    <div>
-        <label for="hours">Hours : </label>
-        <input type="text" id="hours" name="hours">
-    </div>
-    <div>
-        <label for="price">Price : </label>
-        <input type="datetime" id="price" name="price">
-    </div>
-    <div>
-        <input type="submit">
+        
     </div>
 </form>
 

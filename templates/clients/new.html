@@ -4,29 +4,47 @@
 <h2>Add a New Client</h2>
 
 <form action="/clients" method="POST">
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name">
-    </div>
-    <div>
-        <label for="client_from">Where are you from:</label>
-        <input type="text" id="client_from" name="client_from">
-    </div>
-    <div>
-        <label for="email">Your email:</label>
-        <input type="text" id="email" name="email">
-    </div>
-    <div>
-        <label for="birthdate">Date of Birth :</label>
-        <input type="datetime" id="birthdate" name="birthdate">
-    </div>
-    <div>
-        <label for="contact">Phone Number :</label>
-        <input type="contact" id="contact" name="contact">
-    </div>
-    <div>
-        <input type="submit">
-    </div>
+<table class="put_center">
+    <thead>
+        <tr>
+            <div>
+                <td class="left"><label for="name">Name :</label></td>
+                <td><input type="text" id="name" name="name" placeholder="Your Name" required></td>
+            </div>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <div>
+                <td class="left"><label for="client_from">You are from :</label></td>
+                <td><input type="text" id="client_from" name="client_from" placeholder="Nationality" required></td>
+            </div>
+        </tr>
+        <tr>
+            <div>
+                <td class="left"><label for="email">Your email :</label></td>
+                <td><input type="text" id="email" name="email" placeholder="example@example.com" required></td>
+            </div>
+        </tr>
+        <tr>
+            <div>
+                <td class="left"><label for="birthdate">Date of Birth :</label></td>
+                <td><input type="datetime" id="birthdate" name="birthdate" placeholder="20020121" required></td>
+            </div>
+        </tr>
+        <tr>
+            <div>
+                <td class="left"><label for="contact">Phone Number :</label></td>
+                <td><input type="contact" id="contact" name="contact" placeholder="073886244" required></td>
+            </div>
+        </tr>
+        <tr>
+            <div>
+                <td colspan="2" class="center"><input type="submit"></td>
+            </div>
+        </tr>
+    </tbody>
+</table>
 </form>
 
 {% endblock %}

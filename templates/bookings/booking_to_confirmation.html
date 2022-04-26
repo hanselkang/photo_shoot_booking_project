@@ -1,111 +1,172 @@
 {% extends "base.html" %}
 {% block content %}
 <h2>Confirm a booking</h2>
-
 <form action="/booking_confirmations" method="POST">
-    <div>
-        <label for="name">Photo Shoot Event Title:</label>
-        <input type="text" id="name" name="name" value="{{ booking.name }}">
-    </div>
-    <div>
-        <!-- <label for="places">Photo Shoot Place:</label>
-                <input type="text" id="places" name="places"> -->
-        <h1>{{ booking.places }}</h1>
-        <div>
-            <!-- button should be checked if the word contains in booking.places -->
-            <input type="checkbox" id="circuslane" name="circuslane" value="circuslane" {% if "CircusLane" in
-                booking.places :%} checked {% endif %}>
-            <label for="circuslane">Circus Lane</label>
-        </div>
-        <div>
-            <input type="checkbox" id="deanvillage" name="deanvillage" value="deanvillage" {% if "DeanVillage" in
-                booking.places :%} checked {% endif %}>
-            <label for="deanvillage">Dean Village</label>
-        </div>
-        <div>
-            <input type="checkbox" id="newtown" name="newtown" value="newtown"
-            {% if "NewTown" in booking.places :%}
-            checked
-            {% endif %}>
-            <label for="newtown">New Town</label>
-        </div>
-        <div>
-            <input type="checkbox" id="caltonhill" name="caltonhill" value="caltonhill" {% if "CaltonHill" in
-                booking.places :%} checked {% endif %}>
-            <label for="caltonhill">Calton Hill</label>
-        </div>
-        <div>
-            <input type="checkbox" id="princesstreet" name="princesstreet" value="princesstreet" {%
-                if "PrincesStreetGarden" in booking.places :%} checked {% endif %}>
-            <label for="princesstreet">Princes Street Garden</label>
-        </div>
-        <div>
-            <input type="checkbox" id="oldtown" name="oldtown" value="oldtown" {% if "OldTown" in booking.places :%}
-                checked
-                {% endif %}>
-            <label for="oldtown">Old Town</label>
-        </div>
-        <div>
-            <input type="checkbox" id="grassmarket" name="grassmarket" value="grassmarket"{% if "Grassmarket" in booking.places :%}
-                checked
-                {% endif %}>
-            <label for="grassmarket">Grassmarket</label>
-        </div>
-        <div>
-            <input type="checkbox" id="holyroodpark" name="holyroodpark" value="holyroodpark"{% if "HolyroodPark" in booking.places :%}
-                checked
-                {% endif %}>
-            <label for="holyroodpark">Horyrood Park</label>
-        </div>
-    </div>
-    <div>
-        <label for="num_of_group">Number of People:</label>
-        <input type="text" id="num_of_group" name="num_of_group" value="{{ booking.num_of_group }}">
-    </div>
-    <div>
-        <label for="photoshoot_start_time">From :</label>
-        <input type="datetime" value="{{ booking.photoshoot_start_time }}" id="photoshoot_start_time"
-            name="photoshoot_start_time">
-    </div>
-    <div>
-        <label for="photoshoot_end_time">From :</label>
-        <input type="datetime" value="{{ booking.photoshoot_end_time }}" id="photoshoot_end_time"
-            name="photoshoot_end_time">
-    </div>
-    <div>
-        <label for="client_id">Client:</label>
-        <select name="client_id" id="client_id">
-            {% for client in clients %}
-            <option value="{{ client.id }}" {% if client.id==booking.client.id %} selected {% endif %}>
+    <table class="put_center">
+        <thead>
+            <tr>
+                <div>
+                    <th class="left">
+                        <label for="name">Photo Shoot Event Title:</label>
+                    </th>
+                    <th class="center">
+                        <input type="text" id="name" name="name" value="{{ booking.name }}">
+                    </th>
+                </div>
 
-                {{ client.name }}
-            </option>
-            {% endfor %}
-        </select>
-    </div>
-    <div>
-        <label for="service_id">Photo Type:</label>
-        <select name="service_id" id="service_id">
-            {% for service in services %}
-            <option value="{{ service.id }}" {% if service.id==booking.service.id %} selected {% endif %}>
-                {{ service.photo_type }}
-            </option>
-            {% endfor %}
-        </select>
-    </div>
-    <div>
-        <label for="photographer">Photographer:</label>
-        <select name="photographer_id" id="photographer">
-            {% for photographer in photographers %}
-            <option value="{{ photographer.id }}" {% if photographer.id==booking.photographer.id %} selected{% endif %}>
-                {{ photographer.name }}
-            </option>
-            {% endfor %}
-        </select>
-    </div>
-    <div>
-        <input type="hidden" name ="booking_id" value={{ booking.id }}>
-        <input type="submit">
-    </div>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <div>
+                    <td class="left_align">
+                        <input type="checkbox" id="circuslane" name="circuslane" value="circuslane" {% if "CircusLane"
+                            in booking.places :%} checked {% endif %}>
+                        <label for="circuslane">Circus Lane</label>
+                    </td>
+                </div>
+                <div>
+                    <td class="left_align">
+                        <input type="checkbox" id="deanvillage" name="deanvillage" value="deanvillage" {%
+                            if "DeanVillage" in booking.places :%} checked {% endif %}>
+                        <label for="deanvillage">Dean Village</label>
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td class="left_align">
+                        <input type="checkbox" id="newtown" name="newtown" value="newtown" {% if "NewTown" in
+                            booking.places :%} checked {% endif %}>
+                        <label for="newtown">New Town</label>
+                    </td>
+                </div>
+                <div>
+                    <td class="left_align">
+                        <input type="checkbox" id="caltonhill" name="caltonhill" value="caltonhill" {% if "CaltonHill"
+                            in booking.places :%} checked {% endif %}>
+                        <label for="caltonhill">Calton Hill</label>
+                    </td>
+                </div>
+                </div>
+
+            </tr>
+            <tr>
+                <div>
+                    <td class="left_align">
+                        <input type="checkbox" id="princesstreet" name="princesstreet" value="princesstreet" {%
+                            if "PrincesStreetGarden" in booking.places :%} checked {% endif %}>
+                        <label for="princesstreet">Princes Street Garden</label>
+                    </td>
+                </div>
+                <div>
+                    <td class="left_align">
+                        <input type="checkbox" id="oldtown" name="oldtown" value="oldtown" {% if "OldTown" in
+                            booking.places :%} checked {% endif %}>
+                        <label for="oldtown">Old Town</label>
+                    </td>
+                </div>
+
+            </tr>
+            <tr>
+                <div>
+                    <td class="left_align">
+                        <input type="checkbox" id="grassmarket" name="grassmarket" value="grassmarket" {%
+                            if "Grassmarket" in booking.places :%} checked {% endif %}>
+                        <label for="grassmarket">Grassmarket</label>
+                    </td>
+                </div>
+                <div>
+                    <td class="left_align">
+                        <input type="checkbox" id="holyroodpark" name="holyroodpark" value="holyroodpark" {%
+                            if "HolyroodPark" in booking.places :%} checked {% endif %}>
+                        <label for="holyroodpark">Horyrood Park</label>
+                    </td>
+                </div>
+
+            </tr>
+            <tr>
+                <div>
+                    <td class="left"><label for="num_of_group">Number of People:</label></td>
+                    <td class="center"><input type="text" id="num_of_group" name="num_of_group"
+                            value="{{ booking.num_of_group }}"></td>
+                </div>
+
+            </tr>
+            <tr>
+                <div>
+                    <td class="left"><label for="photoshoot_start_time">From :</label></td>
+                    <td class="center"><input type="datetime" value="{{ booking.photoshoot_start_time }}"
+                            id="photoshoot_start_time" name="photoshoot_start_time"></td>
+                </div>
+
+            </tr>
+            <tr>
+                <div>
+                    <td class="left"><label for="photoshoot_end_time">Till :</label></td>
+                    <td class="center"><input type="datetime" value="{{ booking.photoshoot_end_time }}"
+                            id="photoshoot_end_time" name="photoshoot_end_time"></td>
+                </div>
+
+            </tr>
+            <tr>
+                <div>
+                    <td class="left"><label for="client">Client:</label></td>
+                    <td class="center">
+                        <select name="client_id" id="client_id">
+                            {% for client in clients %}
+                            <option value="{{ client.id }}" {% if client.id==booking.client.id %} selected {% endif %}>
+
+                                {{ client.name }}
+                            </option>
+                            {% endfor %}
+                    </td>
+                </div>
+
+            </tr>
+            <tr>
+                <div>
+                    <td class="left"><label for="service_id">Service:</label></td>
+                    <td class="center">
+                        <select name="service_id" id="service_id">
+                            {% for service in services %}
+                            <option value="{{ service.id }}" {% if service.id==booking.service.id %} selected {% endif
+                                %}>
+                                {{ service.photo_type }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </div>
+
+            </tr>
+            <tr>
+                <div>
+                    <td class="left"><label for="photographer_id">Photographer:</label></td>
+                    <td class="center"><select name="photographer_id" id="photographer">
+                            {% for photographer in photographers %}
+                            <option value="{{ photographer.id }}" {% if photographer.id==booking.photographer.id %}
+                                selected{% endif %}>
+                                {{ photographer.name }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </div>
+
+            </tr>
+            <tr>
+                <div>
+                    <td colspan="2" class="center">
+                        <input type="hidden" name="booking_id" value={{ booking.id }}>
+
+                        <input type="submit">
+                    </td>
+                </div>
+
+            </tr>
+        </tbody>
+    </table>
 </form>
+
 {% endblock %}

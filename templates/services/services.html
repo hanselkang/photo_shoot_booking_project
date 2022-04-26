@@ -1,17 +1,55 @@
 {% extends "base2.html" %}
 {% block content %}
+<h2>Our Service List</h2>
+
+<div>
+    <table class="put_center">
+        <thead>
+            <tr>
+                <td class="center"><a href="/services/new" class="btn_index">Add a New Service</a></td>
+            </tr>
+        </thead>
+    </table>
+</div>
+
 {% for service in services %}
-
-
+<table class="put_center service_tb">
+    <thead>
+        <tr>
+            <th class="center">
+                <p>Service Reference Number <br>{{ service.id }}</p>
+            </th>
+            <td rowspan="4"><a href="/services/{{ service.id }}/edit" class="btn_index">edit</a></td>
+            <td rowspan="4">
+                <form action="/services/{{ service.id }}/delete" method="POST">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td class="center">
+                <p>{{ service.photo_type }}</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="center">
+                <p>{{ service.hours }} Hours</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="center">
+                <p>£ {{ service.price }}</p>
+            </td>
+        </tr>
+    </thead>
+</table>
 <section>
-    <p>{{ service.photo_type }} Photo Shoot</p>
-    <p>{{ service.hours }} Hours</p>
-    <p>£ {{ service.price }}</p>
-    <p>{{ service.id }}</p>
-    <a href="/services/{{ service.id }}/edit">edit</a>
-    <form action="/services/{{ service.id }}/delete" method="POST">
-        <input type="submit" value="Delete">
-    </form>
+
+
+
+
+
+
 </section>
 {% endfor %}
 {% endblock %}
