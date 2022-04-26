@@ -5,16 +5,60 @@
 {% for client in clients %}
 
 <section>
-    <p>Client name : {{ client.name }}</p>
-    <p>Client from : {{ client.client_from }}</p>
-    <p>email : {{ client.email }}</p>
-    <p>Date of Birth : {{ client.birthdate }}</p>
-    <p>Contact : {{ client.contact }}</p>
-    <p>ID : {{ client.id }}</p>
-    <a href="/clients/{{ client.id }}/edit">edit</a>
-    <form action="/clients/{{ client.id }}/delete" method="POST">
-        <input type="submit" value="Delete">
-    </form>
+    <table class="put_center">
+        <thead>
+            <tr>
+                <div>
+                    <td class="left">ID :</td>
+                    <td class="center">{{ client.id }}</td>
+                </div>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <div>
+                    <td class="left">Client name :</td>
+                    <td class="center">{{ client.name }}</td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td class="left">Client from :</td>
+                    <td class="center">{{ client.client_from }}</td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td class="left">email :</td>
+                    <td class="center">{{ client.email }}</td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td class="left">Date of Birth :</td>
+                    <td class="center">{{ client.birthdate }}</td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td class="left">Contact :</td>
+                    <td class="center">{{ client.contact }}</td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td class="center" class="btn_index"><a href="/clients/{{ client.id }}/edit">edit</a></td>
+                    <td class="center">
+                        <form action="/clients/{{ client.id }}/delete" method="POST">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </div>
+            </tr>
+        </tbody>
+    </table>
+
+
 </section>
 
 {% endfor %}

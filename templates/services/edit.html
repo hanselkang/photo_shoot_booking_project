@@ -4,21 +4,37 @@
 <h2>Edit Service</h2>
 
 <form action="/services/{{ service.id }}" method="POST">
-    <div>
-        <label for="photo_type">Type : </label>
-        <input type="text" id="photo_type" name="photo_type" value="{{ service.photo_type }}">
-    </div>
-    <div>
-        <label for="hours">Hours : </label>
-        <input type="text" id="hours" name="hours" value="{{ service.hours }}">
-    </div>
-    <div>
-        <label for="price">Price : </label>
-        <input type="datetime" id="price" name="price" value="{{ service.price }}">
-    </div>
-    <div>
-        <input type="submit">
-    </div>
+    <table class="put_center">
+        <thead>
+            <tr>
+                <div>
+                    <td class="left"><label for="photo_type">Type : </label></td>
+                    <td class="center"><input type="text" id="photo_type" name="photo_type"
+                            value="{{ service.photo_type }}"></td>
+                </div>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <div>
+                    <td class="left"><label for="hours">Hours : </label></td>
+                    <td class="center"><input type="text" id="hours" name="hours" value="{{ service.hours }}"></td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <td class="left"><label for="price">Price : </label></td>
+                    <td class="center"><input type="datetime" id="price" name="price" value="{{ service.price }}"></td>
+                </div>
+
+            </tr>
+            <tr>
+                <td colspan="2" class="center"><input type="submit"></td>
+            </tr>
+        </tbody>
+    </table>
 </form>
 
 {% endblock %}
