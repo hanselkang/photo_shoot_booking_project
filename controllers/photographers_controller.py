@@ -11,6 +11,8 @@ photographers_blueprint = Blueprint("photographers", __name__)
 def photographers_sign_in():
     return render_template("photographer_index.html")
 
+
+
 # index
 @photographers_blueprint.route("/photographers")
 def photographers():

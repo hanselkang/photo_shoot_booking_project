@@ -51,6 +51,7 @@ def update(photographer):
     run_sql(sql, values)
 
 
+
 def select_clients_of_photographer(id):
     clients = []
     sql = "SELECT clients.* FROM clients INNER JOIN bookings ON bookings.client_id = clients.id WHERE bookings.photographer_id = %s"
