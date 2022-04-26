@@ -1,17 +1,53 @@
 {% extends "base2.html" %}
 {% block content %}
-<h2>Photographers</h2>
+<h1>Photographers</h1>
+<div class="text_center">
+    <a href="/photographers/new" class="btn_index">Register a New Photographer</a>
+</div>
 {% for photographer in photographers %}
+<br>
+<br>
+<br>
 <section>
-    <p>Photographer name : {{ photographer.name }}</p>
-    <p>email : {{ photographer.email }}</p>
-    <p>Portfolio :
-        <a href="{{ photographer.portfolio_address }}">Click here</a>
-    </p>
-    <a href="/photographers/{{ photographer.id }}/edit">edit</a>
-    <form action="/photographers/{{ photographer.id }}/delete" method="POST">
-        <input type="submit" value="Delete">
-    </form>
+    <table class="put_center">
+        <thead>
+            <tr>
+                <td><img src="{{ url_for('static', filename='/img/profile1.png') }}" alt="hansels profile picture"
+                        width="200px"></td>
+                <td class="left"></td>
+                <td class="center">
+                    <h2>{{ photographer.name }}</h2>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td class="left">email :</td>
+                <td class="center">{{ photographer.email }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="left">Portfolio :</td>
+                <td class="center"><a href="{{ photographer.portfolio_address }}">Click here</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <table class="put_center">
+            <thead>
+                <tr>
+                    <td><a href="/photographers/{{ photographer.id }}/edit" class="btn_index">edit</a></td>
+                    <td>
+                        <form action="/photographers/{{ photographer.id }}/delete" method="POST">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            </thead>
 </section>
+<br>
 {% endfor %}
+
 {% endblock %}
+
