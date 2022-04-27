@@ -3,7 +3,7 @@
 <h1>Photographers</h1>
 {% for photographer in photographers %}
 <section >
-    <table class="put_center">
+    <table class="put_center " >
         <thead>
             <tr>
                 <td><img src="{{ url_for('static', filename='/img/profile1.png') }}" alt="hansels profile picture" width="200px"></td>
@@ -19,8 +19,8 @@
             </tr>
             <tr>
                 <td></td>
-                <td class="left">Portfolio :</td>
-                <td class="center"><a href="{{ photographer.portfolio_address }}" class="btn_index">Click here</a></td>
+                <td class="left"><br></td>
+                <td class="center"><br><a href="{{ photographer.portfolio_address }}" class="btn_index">Portfolio</a></td>
             </tr>
         </tbody>
     </table>

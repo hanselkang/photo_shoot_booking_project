@@ -90,7 +90,7 @@ def edit_booking(id):
     return render_template('bookings/edit.html', booking=booking, clients=clients, services=services, photographers=photographers)
 
 
-# booking to confirmation form
+# "bookings_controller.py" booking to confirmation form
 @bookings_blueprint.route("/bookings/<id>/confirm")
 def confirm_booking(id):
     booking = booking_repository.select(id)
