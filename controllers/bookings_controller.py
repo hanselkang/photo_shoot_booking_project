@@ -1,6 +1,7 @@
 from controllers.booking_confrimations_controller import booking_confirmations
 from flask import Blueprint, Flask, redirect, render_template, request
 from models.booking import Booking
+from datetime import datetime
 import time
 
 import repositories.client_repository as client_repository
@@ -124,6 +125,7 @@ def update_booking(id):
     for place in places:
         str_places += place
     num_of_group = request.form["num_of_group"]
+    
     photoshoot_start_time = request.form["photoshoot_start_time"]
     photoshoot_end_time = request.form["photoshoot_end_time"]
 

@@ -9,7 +9,7 @@
             <tr>
                 <div>
                     <th class="left">
-                        <label for="name">Photo Shoot Event Title:</label>
+                        <label for="name">Photo Shoot Event Title :</label>
                     </th>
                     <th class="center_content">
                         <input type="text" id="name" name="name" value="{{ booking.name }}">
@@ -19,6 +19,14 @@
             </tr>
         </thead>
         <tbody>
+            <tr>
+                <div>
+                    <th class="center" colspan="2">
+                        <h4>Select Photo Shoot Places</h4>
+            
+                    </th>
+                </div>
+            </tr>
             <tr>
                 <div>
                     <td class="left_align">
@@ -89,7 +97,16 @@
             </tr>
             <tr>
                 <div>
-                    <td class="left"><label for="num_of_group">Number of People:</label></td>
+                    <td class="center" colspan="2">
+                        <br>
+                        <h4>Informations</h4>
+            
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <div>
+                    <th class="left"><label for="num_of_group">Number of People:</label></th>
                     <td class="center_content"><input type="text" id="num_of_group" name="num_of_group"
                             value="{{ booking.num_of_group }}"></td>
                 </div>
@@ -97,7 +114,7 @@
             </tr>
             <tr>
                 <div>
-                    <td class="left"><label for="photoshoot_start_time">From :</label></td>
+                    <th class="left"><label for="photoshoot_start_time">From :</label></th>
                     <td class="center_content"><input type="datetime" value="{{ booking.photoshoot_start_time }}"
                             id="photoshoot_start_time" name="photoshoot_start_time"></td>
                 </div>
@@ -105,7 +122,7 @@
             </tr>
             <tr>
                 <div>
-                    <td class="left"><label for="photoshoot_end_time">Till :</label></td>
+                    <th class="left"><label for="photoshoot_end_time">Till :</label></th>
                     <td class="center_content"><input type="datetime" value="{{ booking.photoshoot_end_time }}"
                             id="photoshoot_end_time" name="photoshoot_end_time"></td>
                 </div>
@@ -113,7 +130,7 @@
             </tr>
             <tr>
                 <div>
-                    <td class="left"><label for="client">Client:</label></td>
+                    <th class="left"><label for="client">Client:</label></th>
                     <td class="center_content">
                         <select name="client_id" id="client_id">
                             {% for client in clients %}
@@ -128,7 +145,7 @@
             </tr>
             <tr>
                 <div>
-                    <td class="left"><label for="service_id">Service:</label></td>
+                    <th class="left"><label for="service_id">Service:</label></th>
                     <td class="center_content">
                         <select name="service_id" id="service_id">
                             {% for service in services %}
@@ -144,7 +161,7 @@
             </tr>
             <tr>
                 <div>
-                    <td class="left"><label for="photographer_id">Photographer:</label></td>
+                    <th class="left"><label for="photographer_id">Photographer:</label></th>
                     <td class="center_content"><select name="photographer_id" id="photographer">
                             {% for photographer in photographers %}
                             <option value="{{ photographer.id }}" {% if photographer.id==booking.photographer.id %}
@@ -161,8 +178,8 @@
                 <div>
                     <td colspan="2" class="center_content">
                         <input type="hidden" name="booking_id" value={{ booking.id }}>
-
-                        <input type="submit">
+<br><br>
+                        <input type="submit"><br><br>
                     </td>
                 </div>
 

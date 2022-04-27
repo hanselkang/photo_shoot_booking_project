@@ -1,5 +1,8 @@
 {% extends "base2.html" %}
 {% block content %}
+<h2>Edit Confirmed Booking</h2>
+<br>
+<br>
 <form action="/booking_confirmations/{{ booking_confirmation.id }}" method="POST">
     <table class="put_center">
         <thead>
@@ -16,6 +19,14 @@
             </tr>
         </thead>
         <tbody>
+            <tr>
+                <div>
+                    <th class="center" colspan="2">
+                        <h4>Select Photo Shoot Places</h4>
+
+                    </th>
+                </div>
+            </tr>
             <tr>
                 <div>
                     <td class="left_align">
@@ -86,6 +97,15 @@
             </tr>
             <tr>
                 <div>
+                    <td class="center" colspan="2">
+                        <br>
+                        <h4>Informations</h4>
+
+                    </td>
+                </div>
+            </tr>
+            <tr>
+                <div>
                     <td class="left"><label for="num_of_group">Number of People:</label></td>
                     <td class="center"><input type="text" id="num_of_group" name="num_of_group"
                             value="{{ booking_confirmation.num_of_group }}"></td>
@@ -114,7 +134,8 @@
                     <td class="center">
                         <select name="client_id" id="client_id">
                             {% for client in clients %}
-                            <option value="{{ client.id }}" {% if client.id==booking_confirmation.client.id %} selected {% endif %}>
+                            <option value="{{ client.id }}" {% if client.id==booking_confirmation.client.id %} selected
+                                {% endif %}>
 
                                 {{ client.name }}
                             </option>
@@ -129,8 +150,8 @@
                     <td class="center">
                         <select name="service_id" id="service_id">
                             {% for service in services %}
-                            <option value="{{ service.id }}" {% if service.id==booking_confirmation.service.id %} selected {% endif
-                                %}>
+                            <option value="{{ service.id }}" {% if service.id==booking_confirmation.service.id %}
+                                selected {% endif %}>
                                 {{ service.photo_type }}
                             </option>
                             {% endfor %}
@@ -144,8 +165,8 @@
                     <td class="left"><label for="photographer_id">Photographer:</label></td>
                     <td class="center"><select name="photographer_id" id="photographer">
                             {% for photographer in photographers %}
-                            <option value="{{ photographer.id }}" {% if photographer.id==booking_confirmation.photographer.id %}
-                                selected{% endif %}>
+                            <option value="{{ photographer.id }}" {% if
+                                photographer.id==booking_confirmation.photographer.id %} selected{% endif %}>
                                 {{ photographer.name }}
                             </option>
                             {% endfor %}
@@ -157,7 +178,11 @@
             <tr>
                 <div>
                     <td colspan="2" class="center">
+                        <br>
+                        <br>
                         <input type="submit">
+                        <br>
+                        <br>
                     </td>
                 </div>
 

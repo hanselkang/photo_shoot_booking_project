@@ -80,7 +80,7 @@ html {
     padding-top: 120px;
     padding-bottom: 30px;
     color: white;
-    font-size: small;
+    font-size: 10px;
 }
 
 
@@ -160,6 +160,7 @@ html {
 .left_align {
     text-align: left;
 }
+
 .center {
     text-align: center;
     font-size: 20px;
@@ -256,7 +257,8 @@ td {
     gap: 30px;
 }
 
-.btn_index, input[type=submit] {
+.btn_index,
+input[type=submit] {
     width: 90px;
     border-radius: 60px;
     font-family: Arial;
@@ -269,7 +271,7 @@ td {
     border: none;
     text-decoration: none;
     cursor: pointer;
-    
+
 }
 
 input[type=submit]:hover {
@@ -304,12 +306,13 @@ input[type=submit]:hover {
 .text_center {
     text-align: center;
     font-size: 20px;
-    color: grey
+    color: rgb(62, 62, 62)
 }
 
 .put_center {
     margin-left: auto;
     margin-right: auto;
+
 }
 
 h1 {
@@ -328,26 +331,27 @@ h2 {
 
 .login {
 
-        display: flex;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 250px;
-        width:120px;
-        border-radius: 60px;
-        font-family: Arial;
-        color: #ffffff;
-        font-size: 12px;
-        background: #6f7375;
-        padding: 10px 20px 10px 20px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 250px;
+    width: 120px;
+    border-radius: 60px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 12px;
+    background: #6f7375;
+    padding: 10px 20px 10px 20px;
 }
 
-.login:hover{
-        background: #ff8c00;
+.login:hover {
+    background: #ff8c00;
 }
 
 .login_sesame:link {
-    color : white
+    color: white
 }
+
 .login_sesame:visited {
     color: white
 }
@@ -358,4 +362,39 @@ h2 {
     border-radius: 10px;
     margin-top: 50px;
     width: 600px;
+}
+
+
+/* form length match  */
+#client_id {
+    width: 150px;
+}
+
+#service_id {
+    width: 150px;
+}
+
+#photographer {
+    width: 150px;
+}
+
+#num_of_group {
+    width: 140px;
+}
+
+/* for new booking */
+#client_id_l {
+    width: 180px;
+}
+
+#service_id_l {
+    width: 180px;
+}
+
+#photographer_l {
+    width: 180px;
+}
+
+#num_of_group_l {
+    width: 175px;
 }
