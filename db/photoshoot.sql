@@ -19,7 +19,7 @@ CREATE TABLE photographers (
     name VARCHAR(255),
     email VARCHAR(255),
     portfolio_address VARCHAR(255)
-);
+); 
 
 CREATE TABLE services (
     id SERIAL PRIMARY KEY,

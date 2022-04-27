@@ -24,7 +24,7 @@ def bookings_list_for_clients():
     clients = client_repository.select_all()
     booking_confirmations = booking_confirmation_repository.select_all()
     photographers = photographer_repository.select_all()
-    hidden_part = '***'
+    hidden_part = '*****'
     return render_template("bookings/clients_see_booking_list.html", booking_confirmations=booking_confirmations, clients=clients, photographers=photographers, hidden_part = hidden_part)
     
 
