@@ -1,61 +1,40 @@
 {% extends "base2.html" %}
 {% block content %}
 <h2>Clients</h2>
-
+<table class="put_center table_title">
+    <thead>
+        <tr>
+            <td class="center_content" width ="100px">ID</td>
+            <td class="center_content" width ="100px">Name</td>
+            <td class="center_content" width ="200px">From</td>
+            <td class="center_content" width ="200px">email</td>
+            <td class="center_content" width ="200px">Date of Birth</td>
+            <td class="center_content" width ="100px">Contact</td>
+            <td class="center_content" width ="100px"></td>
+            <td class="center_content" width ="100px"></td>
+        </tr>
+    </thead>
+</table>
 {% for client in clients %}
 
 <section>
+    
     <table class="put_center">
         <thead>
             <tr>
-                <div>
-                    <td class="left">ID :</td>
-                    <td class="center">{{ client.id }}</td>
-                </div>
+                <td class="center_content" width ="100px">{{ client.id }}</td>
+                <td class="center_content" width ="100px">{{ client.name }}</td>
+                <td class="center_content" width ="200px">{{ client.client_from }}</td>
+                <td class="center_content" width ="200px">{{ client.email }}</td>
+                <td class="center_content" width ="200px">{{ client.birthdate }}</td>
+                <td class="center_content" width ="100px">{{ client.contact }}</td>
+                <td class="center_content" width ="100px" ><a href="/clients/{{ client.id }}/edit" class="btn_index">edit</a></td>
+                <td class="center_content" width ="100px"><form action="/clients/{{ client.id }}/delete" method="POST">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <div>
-                    <td class="left">Client name :</td>
-                    <td class="center">{{ client.name }}</td>
-                </div>
-            </tr>
-            <tr>
-                <div>
-                    <td class="left">Client from :</td>
-                    <td class="center">{{ client.client_from }}</td>
-                </div>
-            </tr>
-            <tr>
-                <div>
-                    <td class="left">email :</td>
-                    <td class="center">{{ client.email }}</td>
-                </div>
-            </tr>
-            <tr>
-                <div>
-                    <td class="left">Date of Birth :</td>
-                    <td class="center">{{ client.birthdate }}</td>
-                </div>
-            </tr>
-            <tr>
-                <div>
-                    <td class="left">Contact :</td>
-                    <td class="center">{{ client.contact }}</td>
-                </div>
-            </tr>
-            <tr>
-                <div>
-                    <td class="center" class="btn_index"><a href="/clients/{{ client.id }}/edit">edit</a></td>
-                    <td class="center">
-                        <form action="/clients/{{ client.id }}/delete" method="POST">
-                            <input type="submit" value="Delete">
-                        </form>
-                    </td>
-                </div>
-            </tr>
-        </tbody>
     </table>
 
 

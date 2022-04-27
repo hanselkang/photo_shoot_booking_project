@@ -4,77 +4,47 @@
 <h2>Edit a client</h2>
 
 <form action="/clients/{{ client.id }}" method="POST">
-    <table>
+    <table class="put_center">
         <thead>
             <tr>
                 <div>
-                    <td class="left"></td>
-                    <td class="center"></td>
+                    <td class="left"><label for="name">Name:</label></td>
+                    <td class="center"><input type="text" id="name" name="name" value="{{ client.name }}"></td>
                 </div>
             </tr>
         </thead>
         <tbody>
             <tr>
             <div>
-                <td class="left"></td>
-                <td class="center"></td>
+                <td class="left"><label for="client_from">Where are you from:</label></td>
+                <td class="center"><input type="text" id="client_from" name="client_from" value="{{ client.client_from }}"></td>
             </div>
             </tr>
             <tr>
                 <div>
-                    <td class="left"></td>
-                    <td class="center"></td>
+                    <td class="left"><label for="email">Your email:</label></td>
+                    <td class="center"><input type="text" id="email" name="email" value="{{ client.email }}"></td>
                 </div>
             </tr>
             <tr>
                 <div>
-                    <td class="left"></td>
-                    <td class="center"></td>
+                    <td class="left"><label for="birthdate">Date of Birth :</label></td>
+                    <td class="center"><input type="datetime" id="birthdate" name="birthdate" value="{{ client.birthdate }}"></td>
                 </div>
             </tr>
             <tr>
                 <div>
-                    <td class="left"></td>
-                    <td class="center"></td>
+                    <td class="left"><label for="contact">Phone Number :</label></td>
+                    <td class="center"><input type="contact" id="contact" name="contact" value="{{ client.contact }}"></td>
                 </div>
             </tr>
             <tr>
                 <div>
-                    <td class="left"></td>
-                    <td class="center"></td>
-                </div>
-            </tr>
-            <tr>
-                <div>
-                    <td class="center"></td>
-                    <td class="center"></td>
+                    <td class="center" colspan="2"><input type="submit"></td>
                 </div>
             </tr>
         </tbody>
     </table>
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{ client.name }}">
-    </div>
-    <div>
-        <label for="client_from">Where are you from:</label>
-        <input type="text" id="client_from" name="client_from" value="{{ client.client_from }}">
-    </div>
-    <div>
-        <label for="email">Your email:</label>
-        <input type="text" id="email" name="email" value="{{ client.email }}">
-    </div>
-    <div>
-        <label for="birthdate">Date of Birth :</label>
-        <input type="datetime" id="birthdate" name="birthdate" value="{{ client.birthdate }}">
-    </div>
-    <div>
-        <label for="contact">Phone Number :</label>
-        <input type="contact" id="contact" name="contact" value="{{ client.contact }}">
-    </div>
-    <div>
-        <input type="submit">
-    </div>
 </form>
 
 {% endblock %}

@@ -80,7 +80,7 @@ html {
     padding-top: 120px;
     padding-bottom: 30px;
     color: white;
-
+    font-size: small;
 }
 
 
@@ -160,12 +160,17 @@ html {
 .left_align {
     text-align: left;
 }
-
 .center {
     text-align: center;
     font-size: 20px;
     font-style: bold;
+}
 
+.center_content {
+    text-align: center;
+    font-size: 20px;
+    font-style: bold;
+    border-bottom: 1px solid rgba(215, 215, 215, 0.47);
 }
 
 .confirmedlogo {
@@ -204,6 +209,7 @@ table.map td {
     color: rgb(215, 215, 215);
     font-size: 12px;
     text-align: center;
+    border-radius: 40px;
 }
 
 .dot {
@@ -234,6 +240,12 @@ td {
     height: 90px;
 }
 
+.table_title {
+    background-color: #6f7375;
+    color: white;
+    border-radius: 20px;
+}
+
 /* link */
 
 
@@ -244,21 +256,34 @@ td {
     gap: 30px;
 }
 
-.btn_index {
-    width: 10rem;
+.btn_index, input[type=submit] {
+    width: 90px;
     border-radius: 60px;
     font-family: Arial;
     color: #ffffff;
-    font-size: 12px;
+    font-size: 15px;
     font-variant-position: normal;
     background: #6f7375;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+input[type=submit]:hover {
+    background: #ff8c00;
+    text-decoration: none;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
 }
 
 .btn_index:hover {
     background: #ff8c00;
     text-decoration: none;
+    cursor: pointer;
 }
 
 

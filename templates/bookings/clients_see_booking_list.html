@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 <div>
+    <center>
+        <h3>To request your booking<br> please register your information first</h3>
+    </center>
     <table class="put_center">
         <thead>
             <tr>
@@ -12,8 +15,9 @@
 </div>
 
 
-</div>
-<img src="{{ url_for('static', filename='/img/confirmed.png') }}" alt="confirmed logo" class="confirmedlogo">
+<br>
+<br>
+<h2>Confirmed Booking List</h2>
 {% for booking in booking_confirmations %}
 
 <div class="booking">
@@ -24,49 +28,51 @@
             <thead>
                 <tr>
                     <td class="left">Reference Number:</td>
-                    <td class="center">{{ booking.id }}</td>
+                    <td class="center_content">
+                        <h2>{{ booking.id }}</h2>
+                    </td>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td class="left">Photo Shoot Event Title:</td>
-                    <td class="center">{{ booking.name }}</td>
+                    <td class="center_content">{{ booking.name }}</td>
                 </tr>
                 <tr>
                     <td class="left">Type :</td>
-                    <td class="center">{{ booking.service.photo_type }}</td>
+                    <td class="center_content">{{ booking.service.photo_type }}</td>
                 </tr>
                 <tr>
                     <td class="left">Number of People:</td>
-                    <td class="center">{{ booking.num_of_group }}</td>
+                    <td class="center_content">{{ booking.num_of_group }}</td>
                 </tr>
                 <tr>
                     <td class="left">From : </td>
-                    <td class="center">{{ booking.photoshoot_start_time }}</td>
+                    <td class="center_content">{{ booking.photoshoot_start_time }}</td>
                 </tr>
                 <tr>
                     <td class="left">Till :</td>
-                    <td class="center">{{ booking.photoshoot_end_time }}</td>
+                    <td class="center_content">{{ booking.photoshoot_end_time }}</td>
                 </tr>
 
                 <tr>
                     <td class="left">Client Name :</td>
-                    <td class="center">{{ booking.client.name[0:-2]+hidden_part
+                    <td class="center_content">{{ booking.client.name[0:-2]+hidden_part
                         }}</td>
                 </tr>
 
                 <tr>
                     <td class="left">Client Contact :</td>
-                    <td class="center">{{ booking.client.contact[0:-2]+hidden_part
+                    <td class="center_content">{{ booking.client.contact[0:-2]+hidden_part
                         }}</td>
                 </tr>
                 <tr>
                     <td class="left">Client Contact :</td>
-                    <td class="center">{{ booking.photographer.name }}</td>
+                    <td class="center_content">{{ booking.photographer.name }}</td>
                 </tr>
                 <tr>
                     <td class="left">Photo Shoot Places :</td>
-                    <td class="center">{{ booking.places }}</td>
+                    <td class="center_content">{{ booking.places }}</td>
                 </tr>
             </tbody>
         </table>

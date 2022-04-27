@@ -11,7 +11,7 @@
                     <th class="left">
                         <label for="name">Photo Shoot Event Title:</label>
                     </th>
-                    <th class="center">
+                    <th class="center_content">
                         <input type="text" id="name" name="name" value="{{ booking.name }}">
                     </th>
                 </div>
@@ -90,7 +90,7 @@
             <tr>
                 <div>
                     <td class="left"><label for="num_of_group">Number of People:</label></td>
-                    <td class="center"><input type="text" id="num_of_group" name="num_of_group"
+                    <td class="center_content"><input type="text" id="num_of_group" name="num_of_group"
                             value="{{ booking.num_of_group }}"></td>
                 </div>
 
@@ -98,7 +98,7 @@
             <tr>
                 <div>
                     <td class="left"><label for="photoshoot_start_time">From :</label></td>
-                    <td class="center"><input type="datetime" value="{{ booking.photoshoot_start_time }}"
+                    <td class="center_content"><input type="datetime" value="{{ booking.photoshoot_start_time }}"
                             id="photoshoot_start_time" name="photoshoot_start_time"></td>
                 </div>
 
@@ -106,7 +106,7 @@
             <tr>
                 <div>
                     <td class="left"><label for="photoshoot_end_time">Till :</label></td>
-                    <td class="center"><input type="datetime" value="{{ booking.photoshoot_end_time }}"
+                    <td class="center_content"><input type="datetime" value="{{ booking.photoshoot_end_time }}"
                             id="photoshoot_end_time" name="photoshoot_end_time"></td>
                 </div>
 
@@ -114,7 +114,7 @@
             <tr>
                 <div>
                     <td class="left"><label for="client">Client:</label></td>
-                    <td class="center">
+                    <td class="center_content">
                         <select name="client_id" id="client_id">
                             {% for client in clients %}
                             <option value="{{ client.id }}" {% if client.id==booking.client.id %} selected {% endif %}>
@@ -129,7 +129,7 @@
             <tr>
                 <div>
                     <td class="left"><label for="service_id">Service:</label></td>
-                    <td class="center">
+                    <td class="center_content">
                         <select name="service_id" id="service_id">
                             {% for service in services %}
                             <option value="{{ service.id }}" {% if service.id==booking.service.id %} selected {% endif
@@ -145,7 +145,7 @@
             <tr>
                 <div>
                     <td class="left"><label for="photographer_id">Photographer:</label></td>
-                    <td class="center"><select name="photographer_id" id="photographer">
+                    <td class="center_content"><select name="photographer_id" id="photographer">
                             {% for photographer in photographers %}
                             <option value="{{ photographer.id }}" {% if photographer.id==booking.photographer.id %}
                                 selected{% endif %}>
@@ -159,7 +159,7 @@
             </tr>
             <tr>
                 <div>
-                    <td colspan="2" class="center">
+                    <td colspan="2" class="center_content">
                         <input type="hidden" name="booking_id" value={{ booking.id }}>
 
                         <input type="submit">

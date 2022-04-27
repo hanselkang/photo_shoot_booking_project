@@ -12,6 +12,13 @@ def services():
     services = service_repository.select_all()
     return render_template("services/services.html", services=services)
 
+# index for clients
+
+
+@services_blueprint.route("/service_public")
+def services_public():
+    services = service_repository.select_all()
+    return render_template("services/services_public.html", services=services)
 
 # new
 @services_blueprint.route("/services/new")
