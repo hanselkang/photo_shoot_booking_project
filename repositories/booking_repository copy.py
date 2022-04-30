@@ -1,25 +1,3 @@
-# Codes need to be in booking_repository.py
-# import database and any other repositories or class
-
-
-# Save function
-
-
-# Select ID function to select informations of certain ID
-
-
-# Select All function to show all informations of class
-
-
-# Delete ID function to delete informations of certain ID
-
-
-# Delete All function to delete all informations of class
-
-
-# Update function to update information in SQL
-
-
 from db.run_sql import run_sql
 from models.booking import Booking
 import repositories.client_repository as client_repository
