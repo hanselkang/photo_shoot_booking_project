@@ -8,11 +8,11 @@
 ## Features
 ----------
 * Clients can register their information then book a photo shoot and the booking will go into booking waiting list in Photographer's page
-* CRUD for Photographers, Clietns, and Services in photorapher's page
-* Photographers can look clients informations and booking waiting list
-* Photographers can confirm booking
-* Confirmed booking list is shown on clients' page with hidden information
-* Photographers and Clients can see where photo shoots will be on the map of confirmed booking list
+* CRUD for Photographers, Bookings, Clietns, and Services in photorapher's page
+* Photographers can reach clients informations and booking waiting list
+* Photographers can confirm bookings
+* Confirmed booking list is shown on clients' page with hidden informations.
+* Photo shoot places map for Photographers and Clients (No API)
 
 ## Technology
 ----------
@@ -134,101 +134,101 @@ def create_booking():
 ```
 
 
-## Code for photo shoot spots on the map in HTML
+## Table HTML for photo shoot spots on the map
 ----------
 
 ```
-            <table class="map">
-                <thead>
-                    <tr>
-                        <th colspan="6"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="tr1">
-                        <td></td>
-                        <td>{% if "CircusLane" in booking_confirmation.places
-                            :%}
-                            <div class="dot">●</div>
-                            <div class="map">Circus Lane</div class="map">
-                            {% endif %}
-                        </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td>{% if "NewTown" in booking_confirmation.places
-                            :%}
-                            <div class="dot">●</div>
-                            <div class="map">New Town</div class="map">
-                            {% endif %}
-                        </td>
-                        </td>
-                        <td>{% if "CaltonHill" in booking_confirmation.places
-                            :%}
-                            <div class="dot">●</div>
-                            <div class="map">Calton Hill</div class="map">
-                            {% endif %}
-                        </td>
-                        </td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="tr3">
-                        <td>{% if "DeanVillage" in booking_confirmation.places
-                            :%}
-                            <div class="dot">●</div>
-                            <div class="map">DeanVillage</div class="map">
-                            {% endif %}
-                        </td>
-                        </td>
-                        <td></td>
-                        <td>{% if "PrincesStreetGarden" in booking_confirmation.places
-                            :%}
-                            <div class="dot">●</div>
-                            <div class="map">Prices Street Garden</div class="map">
-                            {% endif %}
-                        </td>
-                        </td>
-                        <td>{% if "OldTown" in booking_confirmation.places
-                            :%}
-                            <div class="dot">●</div>
-                            <div class="map">Old Town</div class="map">
-                            {% endif %}
-                        </td>
-                        </td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="tr3">
-                        <td></td>
-                        <td></td>
-                        <td>{% if "Grassmarket" in booking_confirmation.places
-                            :%}
-                            <div class="dot">●</div>
-                            <div class="map">Grassmarket</div class="map">
-                            {% endif %}
-                        </td>
-                        </td>
-                        <td></td>
-                        <td>{% if "HolyroodPark" in booking_confirmation.places
-                            :%}
-                            <div class="dot">●</div>
-                            <div class="map">Holyrood Park</div class="map">
-                            {% endif %}
-                        </td>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr class="tr4">
-                        <td colspan="6"></td>
-                    </tr>
-                </tbody>
-            </table>
+<table class="map">
+    <thead>
+        <tr>
+            <th colspan="6"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="tr1">
+            <td></td>
+            <td>{% if "CircusLane" in booking_confirmation.places
+                :%}
+                <div class="dot">●</div>
+                <div class="map">Circus Lane</div class="map">
+                {% endif %}
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>{% if "NewTown" in booking_confirmation.places
+                :%}
+                <div class="dot">●</div>
+                <div class="map">New Town</div class="map">
+                {% endif %}
+            </td>
+            </td>
+            <td>{% if "CaltonHill" in booking_confirmation.places
+                :%}
+                <div class="dot">●</div>
+                <div class="map">Calton Hill</div class="map">
+                {% endif %}
+            </td>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="tr3">
+            <td>{% if "DeanVillage" in booking_confirmation.places
+                :%}
+                <div class="dot">●</div>
+                <div class="map">DeanVillage</div class="map">
+                {% endif %}
+            </td>
+            </td>
+            <td></td>
+            <td>{% if "PrincesStreetGarden" in booking_confirmation.places
+                :%}
+                <div class="dot">●</div>
+                <div class="map">Prices Street Garden</div class="map">
+                {% endif %}
+            </td>
+            </td>
+            <td>{% if "OldTown" in booking_confirmation.places
+                :%}
+                <div class="dot">●</div>
+                <div class="map">Old Town</div class="map">
+                {% endif %}
+            </td>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="tr3">
+            <td></td>
+            <td></td>
+            <td>{% if "Grassmarket" in booking_confirmation.places
+                :%}
+                <div class="dot">●</div>
+                <div class="map">Grassmarket</div class="map">
+                {% endif %}
+            </td>
+            </td>
+            <td></td>
+            <td>{% if "HolyroodPark" in booking_confirmation.places
+                :%}
+                <div class="dot">●</div>
+                <div class="map">Holyrood Park</div class="map">
+                {% endif %}
+            </td>
+            </td>
+            <td></td>
+        </tr>
+        <tr class="tr4">
+            <td colspan="6"></td>
+        </tr>
+    </tbody>
+</table>
             
  
 ```
