@@ -1,7 +1,7 @@
 # Photo Shoot Booking App
 ## Book a photo shoot in Edinburgh
 
-##Features
+## Features
 ----------
 * Clients can register their information then book a photo shoot and the booking will go into booking waiting list in Photographer's page
 * CRUD for Photographers, Clietns, and Services in photorapher's page
@@ -31,22 +31,26 @@
 </div>
 
 
-##Deployment
+## Deployment
 ----------
-###To deploy this project run
+### To deploy this project run
 
 '''
+
 Your local machine terminal:
 - git clone https://github.com/hanselkang/photo_shoot_booking_project.git
 - createdb photoshoot.sql (create db)
 - psql -d photoshoot -f db/photoshoot.sql (reset tables)
 - python3 console.py (injecting sql data)
 - flask run
+
 '''
 
-##Code for Photo shoot spot on the map in bookings_controller.py
+## Code for Photo shoot spot on the map in bookings_controller.py
 ----------
+
 '''
+
 @bookings_blueprint.route("/bookings", methods=["POST"])
 def create_booking():
     name = request.form["name"]
@@ -89,9 +93,11 @@ def create_booking():
 '''
 
 
-##Code for Photo shoot spot on the map in HTML
+## Code for Photo shoot spot on the map in HTML
 ----------
+
 '''
+
 <table class="list">
             <thead>
                 <tr>
@@ -234,5 +240,6 @@ def create_booking():
                     </tr>
                 </tbody>
             </table>
+            
  
 '''
