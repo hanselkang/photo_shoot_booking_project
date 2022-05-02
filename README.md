@@ -35,7 +35,7 @@
 ----------
 ### To deploy this project run
 
-'''
+```
 
 Your local machine terminal:
 - git clone https://github.com/hanselkang/photo_shoot_booking_project.git
@@ -44,12 +44,12 @@ Your local machine terminal:
 - python3 console.py (injecting sql data)
 - flask run
 
-'''
+```
 
 ## Code for Photo shoot spot on the map in bookings_controller.py
 ----------
 
-'''
+```
 
 @bookings_blueprint.route("/bookings", methods=["POST"])
 def create_booking():
@@ -90,13 +90,13 @@ def create_booking():
     booking_repository.save(new_booking)
     return redirect("/bookings/clients_booking_list")
    
-'''
+```
 
 
 ## Code for Photo shoot spot on the map in HTML
 ----------
 
-'''
+```
 
 <table class="list">
             <thead>
@@ -242,4 +242,4 @@ def create_booking():
             </table>
             
  
-'''
+```
