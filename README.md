@@ -1,6 +1,10 @@
+<div align="center">
+  
 # Photo Shoot Booking App
 ## Book a photo shoot in Edinburgh
 
+</div>
+  
 ## Features
 ----------
 * Clients can register their information then book a photo shoot and the booking will go into booking waiting list in Photographer's page
@@ -56,7 +60,7 @@
 
 ![4](https://user-images.githubusercontent.com/43307207/166240205-0a877c0e-4bd1-4f02-8c88-2a699197874e.gif)
             
-  Process of photo shoot spots in booking page
+  Process of designing photo shoot spots in booking page
   
   <br>
   <br>
