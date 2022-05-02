@@ -46,7 +46,7 @@ Your local machine terminal:
 
 ```
 
-## Code for Photo shoot spot on the map in bookings_controller.py
+## Code for Photo shoot spots on the map in bookings_controller.py
 ----------
 
 ```
@@ -93,62 +93,10 @@ def create_booking():
 ```
 
 
-## Code for Photo shoot spot on the map in HTML
+## Code for photo shoot spots on the map in HTML
 ----------
 
 ```
-
-<table class="list">
-            <thead>
-                <tr>
-                    <td class="left">Reference Number:</td>
-                    <td class="center_content">{{ booking_confirmation.id }}</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="left">Photo Shoot Event Title:</td>
-                    <td class="center_content">{{ booking_confirmation.name }}</td>
-                </tr>
-                <tr>
-                    <td class="left">Type :</td>
-                    <td class="center_content">{{ booking_confirmation.service.photo_type }}</td>
-                </tr>
-                <tr>
-                    <td class="left">Number of People:</td>
-                    <td class="center_content">{{ booking_confirmation.num_of_group }}</td>
-                </tr>
-                <tr>
-                    <td class="left">From : </td>
-                    <td class="center_content">{{ booking_confirmation.photoshoot_start_time }}</td>
-                </tr>
-                <tr>
-                    <td class="left">To :</td>
-                    <td class="center_content">{{ booking_confirmation.photoshoot_end_time }}</td>
-                </tr>
-
-                <tr>
-                    <td class="left">Client Name :</td>
-                    <td class="center_content">{{ booking_confirmation.client.name
-                        }}</td>
-                </tr>
-
-                <tr>
-                    <td class="left">Client Contact :</td>
-                    <td class="center_content">{{ booking_confirmation.client.contact
-                        }}</td>
-                </tr>
-                <tr>
-                    <td class="left">Client Contact :</td>
-                    <td class="center_content">{{ booking_confirmation.photographer.name }}</td>
-                </tr>
-                <tr>
-                    <td class="left">Photo Shoot Places :</td>
-                    <td class="center_content">{{ booking_confirmation.places }}</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="book_table">
             <table class="map">
                 <thead>
                     <tr>
