@@ -15,18 +15,34 @@
 ![1](https://user-images.githubusercontent.com/43307207/166240099-abe35a13-3fb6-4415-b891-cd6bc8369702.gif)
 
   Client's Demo
+  
+  
+  
+  
 
 ![2](https://user-images.githubusercontent.com/43307207/166240124-14bd6e2e-4ea9-4a8c-9ffb-eb2db5bdcebf.gif)
   
   Photographer's Demo
+  
+  
+  
+  
 
 ![3](https://user-images.githubusercontent.com/43307207/166240150-05c530e4-4e5c-4f4d-8f99-9988dc14268e.gif)
 
   CRUD in Photographer's page
+  
+  
+  
+  
 
 ![4](https://user-images.githubusercontent.com/43307207/166240205-0a877c0e-4bd1-4f02-8c88-2a699197874e.gif)
             
   Process of photo shoot spots in booking page
+  
+  
+  
+  
             
 </div>
 
