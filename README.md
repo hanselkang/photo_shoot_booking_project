@@ -10,6 +10,15 @@
 * Confirmed booking list is shown on clients' page with hidden information
 * Photographers and Clients can see where photo shoots will be on the map of confirmed booking list
 
+## Technology
+----------
+* Python
+* Flask
+* PostgreSQL
+* Psycopg
+* HTML
+* CSS
+
 <div align="center">
 
 ![1](https://user-images.githubusercontent.com/43307207/166240099-abe35a13-3fb6-4415-b891-cd6bc8369702.gif)
@@ -69,7 +78,7 @@ Your local machine terminal:
 - git clone https://github.com/hanselkang/photo_shoot_booking_project.git
 - createdb photoshoot.sql (create db)
 - psql -d photoshoot -f db/photoshoot.sql (reset tables)
-- python3 console.py (injecting sql data)
+- python3 console.py (insert sql dummy data)
 - flask run
 
 ```
