@@ -8,10 +8,10 @@
 ## Features
 ----------
 * Clients can register their information then book a photo shoot. The booking will go into booking waiting list in Photographer's page.
-* CRUD for DB of Photographers, Bookings, Clietns, and Services in photorapher's page.
-* Photographers can reach clients informations and booking waiting list.
+* CRUD for DB of Photographers, Bookings, Clients, and Services in photorapher's page.
+* Photographers can reach clients information and booking waiting list.
 * Photographers can confirm/edit/delete bookings.
-* Confirmed booking list is shown on clients' page with hidden informations.
+* Confirmed booking list is shown on clients' page with hidden information.
 * Photo shoot places map for Photographers and Clients (No API)
 
 ## Technology
