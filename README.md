@@ -28,7 +28,7 @@
   Photographer's Demo
   
   
-    <br>
+  <br>
   <br>
   <br>
   <br>
@@ -39,7 +39,7 @@
   CRUD in Photographer's page
   
   
-    <br>
+  <br>
   <br>
   <br>
   <br>
@@ -49,7 +49,7 @@
             
   Process of photo shoot spots in booking page
   
-    <br>
+  <br>
   <br>
   <br>
   <br>
