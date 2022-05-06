@@ -18,6 +18,7 @@
 ----------
 * Python
 * Flask
+* Jinja 
 * PostgreSQL
 * Psycopg
 * HTML
