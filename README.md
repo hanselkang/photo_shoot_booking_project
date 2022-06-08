@@ -6,7 +6,6 @@
 </div>
   
 ## Features
-----------
 * Clients can register their information then book a photo shoot. The booking will go into booking waiting list in Photographer's page.
 * CRUD for DB of Photographers, Bookings, Clients, and Services in photographer's page.
 * Photographers can reach clients information and booking waiting list.
@@ -15,7 +14,6 @@
 * Photo shoot places map for Photographers and Clients (No API)
 
 ## Technology
-----------
 * Python
 * Flask
 * Jinja 
@@ -81,7 +79,6 @@
 
 
 ## Deployment
-----------
 ### To deploy this project run
 
 ```
@@ -96,7 +93,6 @@ Your local machine terminal:
 ```
 
 ## Code for Photo shoot spots on the map in bookings_controller.py
-----------
 
 ```
 
@@ -143,7 +139,7 @@ def create_booking():
 
 
 ## Table HTML for photo shoot spots on the map
-----------
+
 
 ```
 <table class="map">
